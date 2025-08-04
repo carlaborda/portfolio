@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Carla Borda - Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f9f9f9;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+        h1 {
+            color: #007acc;
+        }
+        a {
+            color: #007acc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .project {
+            margin-bottom: 30px;
+        }
+        #lang-btn {
+            padding: 8px 15px;
+            background-color: #007acc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button id="lang-btn">Español</button>
+
+    <h1 id="title">Carla Borda - Portfolio</h1>
+    <p id="welcome-text">Welcome to my portfolio where I share some of my interior design projects.</p>
+    
+    <div class="project">
+        <h2 id="proj1-title">Project 1: Villa Monge</h2>
+        <img src="imagenespf/titlepage.png" alt="Project 1" />
+        <p id="proj1-desc">Brief description of project 1.</p>
+    </div>
+
+    <div class="project">
+        <h2 id="proj2-title">Project 2: Furniture Design</h2>
+        <img src="images/project2.jpg" alt="Project 2" />
+        <p id="proj2-desc">Brief description of project 2.</p>
+    </div>
+
+    <script>
+        const langBtn = document.getElementById('lang-btn');
+
+        const texts = {
+            en: {
+                langBtn: 'Español',
+                title: 'Carla Borda - Portfolio',
+                welcomeText: 'Welcome to my portfolio where I share some of my interior design projects.',
+                proj1Title: 'Project 1: Villa Monge',
+                proj1Desc: 'Brief description of project 1.',
+                proj2Title: 'Project 2: Furniture Design',
+                proj2Desc: 'Brief description of project 2.'
+            },
+            es: {
+                langBtn: 'English',
+                title: 'Carla Borda - Portafolio',
+                welcomeText: 'Bienvenidos a mi portafolio donde comparto algunos de mis trabajos de diseño de interiores.',
+                proj1Title: 'Proyecto 1: Villa Monge',
+                proj1Desc: 'Descripción breve del proyecto 1.',
+                proj2Title: 'Proyecto 2: Diseño de mobiliario',
+                proj2Desc: 'Descripción breve del proyecto 2.'
+            }
+        };
+
+        let currentLang = 'en';
+
+        langBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'en' ? 'es' : 'en';
+            document.getElementById('title').textContent = texts[currentLang].title;
+            document.getElementById('welcome-text').textContent = texts[currentLang].welcomeText;
+            document.getElementById('proj1-title').textContent = texts[currentLang].proj1Title;
+            document.getElementById('proj1-desc').textContent = texts[currentLang].proj1Desc;
+            document.getElementById('proj2-title').textContent = texts[currentLang].proj2Title;
+            document.getElementById('proj2-desc').textContent = texts[currentLang].proj2Desc;
+            langBtn.textContent = texts[currentLang].langBtn;
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
