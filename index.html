@@ -29,6 +29,25 @@
         .project {
             margin-bottom: 30px;
         }
+        .project {
+    margin-bottom: 30px;
+    max-width: 800px;      /* limita el ancho total del contenedor */
+    margin-left: auto;
+    margin-right: auto;    /* centra el contenedor en la pantalla */
+}
+
+.project img {
+    max-width: 100%;       /* la imagen no saldrá del ancho del contenedor */
+    height: auto;
+}
+
+.imagen-chica {
+    max-width: 400px;      /* limita el ancho máximo de esta imagen */
+    width: 100%;           /* para que se adapte dentro del max-width */
+    height: auto;
+    display: block;        /* para que responda bien */
+    margin: 0;             /* sin centrar */
+}
         #lang-btn {
             padding: 8px 15px;
             background-color: #007acc;
@@ -98,6 +117,7 @@
 </body>
 
 </html>
+
 
 
 
