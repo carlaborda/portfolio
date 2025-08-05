@@ -3,121 +3,151 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Carla Borda – Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>Carla Borda - Portfolio</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f3f4f6;
-      color: #111827;
-      line-height: 1.6;
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 40px 20px;
+      color: #333;
     }
 
-    header {
-      padding: 60px 20px 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2.8em;
-      font-weight: 600;
-      color: #111827;
-    }
-
-    header p {
-      font-size: 1.1em;
-      color: #6b7280;
-      margin-top: 8px;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-      padding: 60px 20px;
+    .container {
       max-width: 1200px;
       margin: 0 auto;
     }
 
-    .card {
-      background-color: #ffffff;
-      border-radius: 14px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    h1 {
+      color: #007acc;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    p#welcome-text {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    #lang-btn {
+      padding: 8px 15px;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 30px;
+      display: block;
+      margin-left: auto;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      background-color: #fff;
+      border-radius: 12px;
       overflow: hidden;
-      text-decoration: none;
-      color: inherit;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      text-align: center;
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+    .project-card:hover {
+      transform: translateY(-5px);
     }
 
-    .card img {
+    .project-card img {
       width: 100%;
-      height: 220px;
-      object-fit: cover;
+      height: auto;
       display: block;
     }
 
-    .card-content {
-      padding: 20px;
+    .project-card h2 {
+      margin: 15px;
+      font-size: 20px;
+      color: #007acc;
     }
 
-    .card h2 {
-      font-size: 1.4em;
-      margin-bottom: 10px;
-      color: #1f2937;
-    }
-
-    .card p {
-      font-size: 0.95em;
-      color: #6b7280;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.9em;
-      color: #9ca3af;
-      padding: 40px 10px;
+    .project-card p {
+      margin: 0 15px 20px;
+      font-size: 14px;
+      color: #555;
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <button id="lang-btn">Español</button>
 
-  <header>
-    <h1>Carla Borda</h1>
-    <p>Interior Designer – Portfolio</p>
-  </header>
+    <h1 id="title">Carla Borda - Portfolio</h1>
+    <p id="welcome-text">Welcome to my portfolio where I share some of my interior design projects.</p>
 
-  <main>
-    <section class="gallery">
-      <!-- Proyecto Villa Monge -->
-      <a class="card" href="villa-monge.html">
-        <img src="imagenespf/titlepage.png" alt="Villa Monge Project Thumbnail" />
-        <div class="card-content">
-          <h2>Villa Monge</h2>
-          <p>Interiorismo residencial con inspiración natural, diseño funcional y estética suave.</p>
-        </div>
-      </a>
+    <div class="projects-grid">
+      <div class="project-card">
+        <a href="villa-monge.html">
+          <img src="imagenespf/titlepage.png" alt="Villa Monge" />
+        </a>
+        <h2 id="proj1-title">Project 1: Villa Monge</h2>
+        <p id="proj1-desc">Brief description of project 1.</p>
+      </div>
 
-      <!-- Agregá más proyectos duplicando esta tarjeta -->
-    </section>
-  </main>
+      <div class="project-card">
+        <a href="project2.html">
+          <img src="images/project2.jpg" alt="Furniture Design" />
+        </a>
+        <h2 id="proj2-title">Project 2: Furniture Design</h2>
+        <p id="proj2-desc">Brief description of project 2.</p>
+      </div>
 
-  <footer>
-    © 2025 Carla Borda. Todos los derechos reservados.
-  </footer>
+      <!-- Podés seguir agregando más proyectos copiando otro .project-card -->
+    </div>
+  </div>
 
+  <script>
+    const langBtn = document.getElementById('lang-btn');
+
+    const texts = {
+      en: {
+        langBtn: 'Español',
+        title: 'Carla Borda - Portfolio',
+        welcomeText: 'Welcome to my portfolio where I share some of my interior design projects.',
+        proj1Title: 'Project 1: Villa Monge',
+        proj1Desc: 'Brief description of project 1.',
+        proj2Title: 'Project 2: Furniture Design',
+        proj2Desc: 'Brief description of project 2.'
+      },
+      es: {
+        langBtn: 'English',
+        title: 'Carla Borda - Portafolio',
+        welcomeText: 'Bienvenidos a mi portafolio donde comparto algunos de mis trabajos de diseño de interiores.',
+        proj1Title: 'Proyecto 1: Villa Monge',
+        proj1Desc: 'Descripción breve del proyecto 1.',
+        proj2Title: 'Proyecto 2: Diseño de mobiliario',
+        proj2Desc: 'Descripción breve del proyecto 2.'
+      }
+    };
+
+    let currentLang = 'en';
+
+    langBtn.addEventListener('click', () => {
+      currentLang = currentLang === 'en' ? 'es' : 'en';
+      document.getElementById('title').textContent = texts[currentLang].title;
+      document.getElementById('welcome-text').textContent = texts[currentLang].welcomeText;
+      document.getElementById('proj1-title').textContent = texts[currentLang].proj1Title;
+      document.getElementById('proj1-desc').textContent = texts[currentLang].proj1Desc;
+      document.getElementById('proj2-title').textContent = texts[currentLang].proj2Title;
+      document.getElementById('proj2-desc').textContent = texts[currentLang].proj2Desc;
+      langBtn.textContent = texts[currentLang].langBtn;
+    });
+  </script>
 </body>
 </html>
+
+
 
 
 
