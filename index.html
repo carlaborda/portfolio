@@ -1,121 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Carla Borda - Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            background-color: #f9f9f9;
-            color: #333;
-            transition: all 0.3s ease;
-        }
-        .imagen-chica {
-        max-width: 400px;
-        height: auto;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carla Borda - Portfolio</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 40px 20px;
+      color: #333;
     }
-        h1 {
-            color: #007acc;
-        }
-        a {
-            color: #007acc;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .project {
-            margin-bottom: 30px;
-        }
-        .project {
-    margin-bottom: 30px;
-    max-width: 800px;      /* limita el ancho total del contenedor */
-    margin-left: auto;
-    margin-right: auto;    /* centra el contenedor en la pantalla */
-}
 
-.project img {
-    max-width: 100%;       /* la imagen no saldrá del ancho del contenedor */
-    height: auto;
-}
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-.imagen-chica {
-    max-width: 400px;      /* limita el ancho máximo de esta imagen */
-    width: 100%;           /* para que se adapte dentro del max-width */
-    height: auto;
-    display: block;        /* para que responda bien */
-    margin: 0;             /* sin centrar */
-}
-        #lang-btn {
-            padding: 8px 15px;
-            background-color: #007acc;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-bottom: 20px;
-        }
-    </style>
+    h1 {
+      color: #007acc;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    p#welcome-text {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    #lang-btn {
+      padding: 8px 15px;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 30px;
+      display: block;
+      margin-left: auto;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      background-color: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .project-card h2 {
+      margin: 15px;
+      font-size: 20px;
+      color: #007acc;
+    }
+
+    .project-card p {
+      margin: 0 15px 20px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
     <button id="lang-btn">Español</button>
 
     <h1 id="title">Carla Borda - Portfolio</h1>
     <p id="welcome-text">Welcome to my portfolio where I share some of my interior design projects.</p>
-    
-    <div class="project">
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <a href="villa-monge.html">
+          <img src="imagenespf/titlepage.png" alt="Villa Monge" />
+        </a>
         <h2 id="proj1-title">Project 1: Villa Monge</h2>
-        <img src="imagenespf/titlepage.png" alt="Project 1" class="imagen-chica" />
         <p id="proj1-desc">Brief description of project 1.</p>
-    </div>
+      </div>
 
-    <div class="project">
+      <div class="project-card">
+        <a href="project2.html">
+          <img src="images/project2.jpg" alt="Furniture Design" />
+        </a>
         <h2 id="proj2-title">Project 2: Furniture Design</h2>
-        <img src="images/project2.jpg" alt="Project 2" />
         <p id="proj2-desc">Brief description of project 2.</p>
+      </div>
+
+      <!-- Podés seguir agregando más proyectos copiando otro .project-card -->
     </div>
+  </div>
 
-    <script>
-        const langBtn = document.getElementById('lang-btn');
+  <script>
+    const langBtn = document.getElementById('lang-btn');
 
-        const texts = {
-            en: {
-                langBtn: 'Español',
-                title: 'Carla Borda - Portfolio',
-                welcomeText: 'Welcome to my portfolio where I share some of my interior design projects.',
-                proj1Title: 'Project 1: Villa Monge',
-                proj1Desc: 'Brief description of project 1.',
-                proj2Title: 'Project 2: Furniture Design',
-                proj2Desc: 'Brief description of project 2.'
-            },
-            es: {
-                langBtn: 'English',
-                title: 'Carla Borda - Portafolio',
-                welcomeText: 'Bienvenidos a mi portafolio donde comparto algunos de mis trabajos de diseño de interiores.',
-                proj1Title: 'Proyecto 1: Villa Monge',
-                proj1Desc: 'Descripción breve del proyecto 1.',
-                proj2Title: 'Proyecto 2: Diseño de mobiliario',
-                proj2Desc: 'Descripción breve del proyecto 2.'
-            }
-        };
+    const texts = {
+      en: {
+        langBtn: 'Español',
+        title: 'Carla Borda - Portfolio',
+        welcomeText: 'Welcome to my portfolio where I share some of my interior design projects.',
+        proj1Title: 'Project 1: Villa Monge',
+        proj1Desc: 'Brief description of project 1.',
+        proj2Title: 'Project 2: Furniture Design',
+        proj2Desc: 'Brief description of project 2.'
+      },
+      es: {
+        langBtn: 'English',
+        title: 'Carla Borda - Portafolio',
+        welcomeText: 'Bienvenidos a mi portafolio donde comparto algunos de mis trabajos de diseño de interiores.',
+        proj1Title: 'Proyecto 1: Villa Monge',
+        proj1Desc: 'Descripción breve del proyecto 1.',
+        proj2Title: 'Proyecto 2: Diseño de mobiliario',
+        proj2Desc: 'Descripción breve del proyecto 2.'
+      }
+    };
 
-        let currentLang = 'en';
+    let currentLang = 'en';
 
-        langBtn.addEventListener('click', () => {
-            currentLang = currentLang === 'en' ? 'es' : 'en';
-            document.getElementById('title').textContent = texts[currentLang].title;
-            document.getElementById('welcome-text').textContent = texts[currentLang].welcomeText;
-            document.getElementById('proj1-title').textContent = texts[currentLang].proj1Title;
-            document.getElementById('proj1-desc').textContent = texts[currentLang].proj1Desc;
-            document.getElementById('proj2-title').textContent = texts[currentLang].proj2Title;
-            document.getElementById('proj2-desc').textContent = texts[currentLang].proj2Desc;
-            langBtn.textContent = texts[currentLang].langBtn;
-        });
-    </script>
+    langBtn.addEventListener('click', () => {
+      currentLang = currentLang === 'en' ? 'es' : 'en';
+      document.getElementById('title').textContent = texts[currentLang].title;
+      document.getElementById('welcome-text').textContent = texts[currentLang].welcomeText;
+      document.getElementById('proj1-title').textContent = texts[currentLang].proj1Title;
+      document.getElementById('proj1-desc').textContent = texts[currentLang].proj1Desc;
+      document.getElementById('proj2-title').textContent = texts[currentLang].proj2Title;
+      document.getElementById('proj2-desc').textContent = texts[currentLang].proj2Desc;
+      langBtn.textContent = texts[currentLang].langBtn;
+    });
+  </script>
 </body>
-
 </html>
 
 
