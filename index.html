@@ -3,149 +3,119 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Carla Borda - Portfolio</title>
+  <title>Carla Borda – Portfolio</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f0f2f5;
       margin: 0;
-      padding: 40px 20px;
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f7fa;
       color: #333;
     }
 
-    .container {
+    header {
+      padding: 40px 20px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #007acc;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #555;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 40px 20px;
       max-width: 1200px;
       margin: 0 auto;
     }
 
-    h1 {
-      color: #007acc;
-      text-align: center;
-      margin-bottom: 10px;
-    }
-
-    p#welcome-text {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    #lang-btn {
-      padding: 8px 15px;
-      background-color: #007acc;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-bottom: 30px;
-      display: block;
-      margin-left: auto;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
-
-    .project-card {
+    .card {
       background-color: #fff;
       border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
       overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+      color: inherit;
     }
 
-    .project-card:hover {
+    .card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     }
 
-    .project-card img {
+    .card img {
       width: 100%;
-      height: auto;
-      display: block;
+      height: 200px;
+      object-fit: cover;
     }
 
-    .project-card h2 {
-      margin: 15px;
-      font-size: 20px;
+    .card .card-content {
+      padding: 20px;
+    }
+
+    .card h2 {
+      margin: 0 0 10px;
+      font-size: 1.4em;
       color: #007acc;
     }
 
-    .project-card p {
-      margin: 0 15px 20px;
-      font-size: 14px;
+    .card p {
+      margin: 0;
+      font-size: 0.95em;
       color: #555;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85em;
+      color: #aaa;
+      padding: 30px 10px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <button id="lang-btn">Español</button>
 
-    <h1 id="title">Carla Borda - Portfolio</h1>
-    <p id="welcome-text">Welcome to my portfolio where I share some of my interior design projects.</p>
+  <header>
+    <h1>Carla Borda</h1>
+    <p>Interior Designer – Portfolio</p>
+  </header>
 
-    <div class="projects-grid">
-      <div class="project-card">
-        <a href="villa-monge.html">
-          <img src="imagenespf/titlepage.png" alt="Villa Monge" />
-        </a>
-        <h2 id="proj1-title">Project 1: Villa Monge</h2>
-        <p id="proj1-desc">Brief description of project 1.</p>
-      </div>
+  <main>
+    <section class="gallery">
+      <!-- Proyecto Villa Monge -->
+      <a class="card" href="villa-monge.html">
+        <img src="imagenespf/titlepage.png" alt="Villa Monge Project Thumbnail" />
+        <div class="card-content">
+          <h2>Villa Monge</h2>
+          <p>Residential interior design project combining natural textures and soft lighting with contemporary functionality.</p>
+        </div>
+      </a>
 
-      <div class="project-card">
-        <a href="project2.html">
-          <img src="images/project2.jpg" alt="Furniture Design" />
-        </a>
-        <h2 id="proj2-title">Project 2: Furniture Design</h2>
-        <p id="proj2-desc">Brief description of project 2.</p>
-      </div>
+      <!-- Podés agregar más proyectos duplicando la tarjeta de arriba -->
+    </section>
+  </main>
 
-      <!-- Podés seguir agregando más proyectos copiando otro .project-card -->
-    </div>
-  </div>
+  <footer>
+    © 2025 Carla Borda. All rights reserved.
+  </footer>
 
-  <script>
-    const langBtn = document.getElementById('lang-btn');
-
-    const texts = {
-      en: {
-        langBtn: 'Español',
-        title: 'Carla Borda - Portfolio',
-        welcomeText: 'Welcome to my portfolio where I share some of my interior design projects.',
-        proj1Title: 'Project 1: Villa Monge',
-        proj1Desc: 'Brief description of project 1.',
-        proj2Title: 'Project 2: Furniture Design',
-        proj2Desc: 'Brief description of project 2.'
-      },
-      es: {
-        langBtn: 'English',
-        title: 'Carla Borda - Portafolio',
-        welcomeText: 'Bienvenidos a mi portafolio donde comparto algunos de mis trabajos de diseño de interiores.',
-        proj1Title: 'Proyecto 1: Villa Monge',
-        proj1Desc: 'Descripción breve del proyecto 1.',
-        proj2Title: 'Proyecto 2: Diseño de mobiliario',
-        proj2Desc: 'Descripción breve del proyecto 2.'
-      }
-    };
-
-    let currentLang = 'en';
-
-    langBtn.addEventListener('click', () => {
-      currentLang = currentLang === 'en' ? 'es' : 'en';
-      document.getElementById('title').textContent = texts[currentLang].title;
-      document.getElementById('welcome-text').textContent = texts[currentLang].welcomeText;
-      document.getElementById('proj1-title').textContent = texts[currentLang].proj1Title;
-      document.getElementById('proj1-desc').textContent = texts[currentLang].proj1Desc;
-      document.getElementById('proj2-title').textContent = texts[currentLang].proj2Title;
-      document.getElementById('proj2-desc').textContent = texts[currentLang].proj2Desc;
-      langBtn.textContent = texts[currentLang].langBtn;
-    });
-  </script>
 </body>
 </html>
+
+
 
 
 
