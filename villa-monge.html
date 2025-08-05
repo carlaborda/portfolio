@@ -7,10 +7,11 @@
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f9f9f9;
+      background-color: #f5f7f6;
       margin: 0;
       padding: 40px 20px;
-      color: #333;
+      color: #2e3c36;
+      line-height: 1.6;
     }
 
     .container {
@@ -19,33 +20,63 @@
       background: white;
       padding: 40px;
       border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 20px rgba(46, 60, 54, 0.12);
+      border: 1.5px solid #d7e1db;
     }
 
     a.back-link {
       display: inline-block;
       margin-bottom: 30px;
-      color: #007acc;
+      color: #1a6b5f;
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
+      transition: color 0.3s ease;
     }
 
     a.back-link:hover {
+      color: #3d9d82;
       text-decoration: underline;
     }
 
-    h1, h2 {
-      color: #005b99;
-      margin-top: 40px;
+    header.project-header {
+      margin-bottom: 40px;
+      border-bottom: 2px solid #d7e1db;
+      padding-bottom: 10px;
     }
 
-    h1:first-of-type {
-      margin-top: 0;
+    header.project-header h1 {
+      margin: 0 0 5px;
+      font-weight: 800;
+      font-size: 2.8rem;
+      color: #1a6b5f;
+    }
+
+    header.project-header p {
+      margin: 0;
+      color: #4e6b57;
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    h2 {
+      color: #1a6b5f;
+      margin-top: 50px;
+      margin-bottom: 15px;
+      font-weight: 700;
+      font-size: 1.8rem;
     }
 
     p {
-      line-height: 1.6;
-      font-size: 1.05rem;
+      font-size: 1.1rem;
+      color: #4e6b57;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    ul {
+      padding-left: 20px;
+      color: #4e6b57;
+      margin-bottom: 25px;
     }
 
     img {
@@ -53,46 +84,141 @@
       height: auto;
       margin-top: 20px;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 12px rgba(46, 60, 54, 0.08);
+      border: 1px solid #d7e1db;
+      transition: transform 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(46, 60, 54, 0.15);
+    }
+
+    /* Fade-in visible class */
+    .fade-in {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    footer {
+      max-width: 900px;
+      margin: 40px auto 20px;
+      text-align: center;
+      color: #1a6b5f;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-top: 1px solid #d7e1db;
+      padding-top: 15px;
+    }
+
+    /* Añadimos animación para textos y headers */
+    .fade-in-text {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in-text.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 20px 10px;
+      }
+
+      .container {
+        padding: 20px;
+      }
+
+      header.project-header h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <a href="index.html" class="back-link">← Back to Portfolio</a>
-    <h1>Villa Monge</h1>
-    <p>
+    <a href="index.html" class="back-link fade-in-text">← Back to Portfolio</a>
+
+    <header class="project-header fade-in-text">
+      <h1>Villa Monge</h1>
+      <p>Residential Interior Design Project — Switzerland, 2024</p>
+    </header>
+
+    <p class="fade-in-text">
       Villa Monge is a residential interior design project located in Switzerland. The main concept
       was to balance natural textures and soft lighting with contemporary functionality.
     </p>
-    <p>
+    <p class="fade-in-text">
       The proposal integrates locally sourced materials and a spatial flow that encourages connection between
       interior and exterior spaces.
     </p>
 
-    <img src="imagenespf/titlepage.png" alt="Villa Monge - Cover Image" />
-    <img src="imagenespf/theproject.png" alt="Villa Monge - Info Image" />
+    <img src="imagenespf/titlepage.png" alt="Villa Monge - Cover Image" class="fade-in" />
+    <img src="imagenespf/theproject.png" alt="Villa Monge - Info Image" class="fade-in" />
 
-    <h1>Bathroom</h1>
+    <h2 class="fade-in-text">Bathroom</h2>
 
-    <h2>Concept Board</h2>
-    <img src="imagenespf/moodboardbaño.png" alt="Villa Monge - moodboards" />
+    <h2 class="fade-in-text">Concept Board</h2>
+    <img src="imagenespf/moodboardbaño.png" alt="Villa Monge - moodboards" class="fade-in" />
 
-    <h2>Axonometric Projection</h2>
-    <img src="imagenespf/axobath.png" alt="Villa Monge - axo" />
+    <h2 class="fade-in-text">Axonometric Projection</h2>
+    <img src="imagenespf/axobath.png" alt="Villa Monge - axo" class="fade-in" />
 
-    <h2>Layouts</h2>
-    <img src="imagenespf/layoutplantabath.png" alt="Villa Monge - layouts" />
+    <h2 class="fade-in-text">Layouts</h2>
+    <img src="imagenespf/layoutplantabath.png" alt="Villa Monge - layouts" class="fade-in" />
 
-    <h2>Section A</h2>
-    <img src="imagenespf/layoutsectiona.png" alt="Villa Monge - layouts" />
+    <h2 class="fade-in-text">Section A</h2>
+    <img src="imagenespf/layoutsectiona.png" alt="Villa Monge - layouts" class="fade-in" />
 
-    <h2>3D Renders</h2>
-    <img src="imagenespf/renderbañozoomout.png" alt="Villa Monge - renders" />
-    <img src="imagenespf/renderbañocloseup.png" alt="Villa Monge - renders" />
+    <h2 class="fade-in-text">3D Renders</h2>
+    <img src="imagenespf/renderbañozoomout.png" alt="Villa Monge - renders" class="fade-in" />
+    <img src="imagenespf/renderbañocloseup.png" alt="Villa Monge - renders" class="fade-in" />
   </div>
+
+  <footer>
+    © 2025 Carla Borda — <a href="mailto:carlaborda@upc.edu.ar" style="color:#1a6b5f; text-decoration:none;">Contact</a>
+  </footer>
+
+  <script>
+    // Función para detectar elementos visibles en pantalla y agregar clase para animar fade-in
+    function handleFadeIn() {
+      const fadeIns = document.querySelectorAll('.fade-in');
+      const fadeTexts = document.querySelectorAll('.fade-in-text');
+
+      const windowBottom = window.innerHeight;
+
+      fadeIns.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < windowBottom - 50) {
+          el.classList.add('fade-in');
+        }
+      });
+
+      fadeTexts.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < windowBottom - 50) {
+          el.classList.add('visible');
+        }
+      });
+    }
+
+    // Ejecutar al cargar la página y al hacer scroll
+    window.addEventListener('scroll', handleFadeIn);
+    window.addEventListener('load', handleFadeIn);
+  </script>
 </body>
 </html>
+
 
 
 
