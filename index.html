@@ -32,29 +32,18 @@
       margin: 10px 0 20px;
     }
 
-    .nav-buttons {
-      margin-top: 20px;
-    }
-
-    .nav-buttons a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #ffffff;
-      font-weight: bold;
-    }
-
     .cta-buttons {
       margin-top: 30px;
       display: flex;
-      justify-content: center;  /* centra los botones */
-      gap: 15px;                /* espacio parejo entre botones */
-      flex-wrap: wrap;          /* que bajen si falta espacio */
-      align-items: center;      /* alinea verticalmente */
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      align-items: center;
     }
 
     .cta-buttons a,
     #lang-btn {
-      margin: 0;                /* quitamos márgenes individuales */
+      margin: 0;
       padding: 12px 20px;
       border: 2px solid #ffffff;
       border-radius: 6px;
@@ -85,7 +74,7 @@
       background-color: #ffffff;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3); 
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       text-align: center;
       color: #333;
@@ -93,7 +82,7 @@
 
     .project-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); 
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     }
 
     .project-card img {
@@ -129,6 +118,7 @@
   </header>
 
   <div class="projects-grid">
+    <!-- Proyecto 1 -->
     <div class="project-card">
       <a href="villa-monge.html">
         <img src="imagenespf/titlepage.png" alt="Villa Monge" />
@@ -137,12 +127,22 @@
       <p id="proj1-desc">Brief description of project 1.</p>
     </div>
 
+    <!-- Proyecto 2 -->
     <div class="project-card">
       <a href="project2.html">
         <img src="images/project2.jpg" alt="Furniture Design" />
       </a>
       <h2 id="proj2-title">Project 2: Furniture Design</h2>
       <p id="proj2-desc">Brief description of project 2.</p>
+    </div>
+
+    <!-- Proyecto 3: Van Camper -->
+    <div class="project-card">
+      <a href="van-camper.html">
+        <img src="imagenespf/van1.jpg" alt="Van Camper Design" />
+      </a>
+      <h2 id="proj3-title">Project 3: Van Camper</h2>
+      <p id="proj3-desc">Brief description of project 3.</p>
     </div>
   </div>
 
@@ -155,14 +155,18 @@
         proj1Title: 'Project 1: Villa Monge',
         proj1Desc: 'Brief description of project 1.',
         proj2Title: 'Project 2: Furniture Design',
-        proj2Desc: 'Brief description of project 2.'
+        proj2Desc: 'Brief description of project 2.',
+        proj3Title: 'Project 3: Van Camper',
+        proj3Desc: 'Brief description of project 3.'
       },
       es: {
         langBtn: 'English',
         proj1Title: 'Proyecto 1: Villa Monge',
         proj1Desc: 'Descripción breve del proyecto 1.',
         proj2Title: 'Proyecto 2: Diseño de mobiliario',
-        proj2Desc: 'Descripción breve del proyecto 2.'
+        proj2Desc: 'Descripción breve del proyecto 2.',
+        proj3Title: 'Proyecto 3: Van Camper',
+        proj3Desc: 'Descripción breve del proyecto 3.'
       }
     };
 
@@ -174,13 +178,13 @@
       document.getElementById('proj1-desc').textContent = texts[currentLang].proj1Desc;
       document.getElementById('proj2-title').textContent = texts[currentLang].proj2Title;
       document.getElementById('proj2-desc').textContent = texts[currentLang].proj2Desc;
+      document.getElementById('proj3-title').textContent = texts[currentLang].proj3Title;
+      document.getElementById('proj3-desc').textContent = texts[currentLang].proj3Desc;
       langBtn.textContent = texts[currentLang].langBtn;
     });
   </script>
 </body>
 </html>
-
-
 
 
 
