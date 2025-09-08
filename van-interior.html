@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Van Camper - Carla Borda</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #e0e7e3; /* un verde suave más oscuro que #e3ede9 */
+      margin: 0;
+      padding: 40px 20px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    a.back-link {
+      display: inline-block;
+      margin-bottom: 30px;
+      color: #007a5c;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a.back-link:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      color: #005b40;
+      margin-top: 0;
+    }
+
+    p {
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+
+    /* --- Slider --- */
+    .slider {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      margin: 30px 0;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slides img {
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+
+    .slider-btn.left { left: 10px; }
+    .slider-btn.right { right: 10px; }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-link">← Back to Portfolio</a>
+    <h1>Van Camper</h1>
+    <p>
+      Interior design and layout proposal for a camper van conversion project. 
+      Different configurations were explored to optimize functionality, comfort, and storage in reduced spaces.
+    </p>
+
+    <!-- Slider -->
+    <div class="slider">
+      <div class="slides">
+        <img src="imagenespf/van-layout1.png" alt="Van Layout 1" />
+        <img src="imagenespf/van-layout2.png" alt="Van Layout 2" />
+        <img src="imagenespf/van-layout3.png" alt="Van Layout 3" />
+        <img src="imagenespf/van-render1.png" alt="Van Render 1" />
+        <img src="imagenespf/van-render2.png" alt="Van Render 2" />
+      </div>
+      <button class="slider-btn left">❮</button>
+      <button class="slider-btn right">❯</button>
+    </div>
+  </div>
+
+  <script>
+    const slides = document.querySelector('.slides');
+    const images = document.querySelectorAll('.slides img');
+    const prevBtn = document.querySelector('.slider-btn.left');
+    const nextBtn = document.querySelector('.slider-btn.right');
+    let index = 0;
+
+    function showSlide(i) {
+      index = (i + images.length) % images.length;
+      slides.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    prevBtn.addEventListener('click', () => showSlide(index - 1));
+    nextBtn.addEventListener('click', () => showSlide(index + 1));
+  </script>
+</body>
+</html>
