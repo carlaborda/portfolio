@@ -1,175 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Carla Borda - Portfolio</title>
+  <meta charset="UTF-8">
+  <title>Portfolio - Carla Borda</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
   <style>
-    body {
+    :root {
+      --color-principal: #4CAF50;
+      --color-secundario: #FFC107;
+      --color-fondo: #FAFAFA;
+      --color-texto: #333333;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: 'Arial', sans-serif;
-      background-color: #0f1e1b;
-      color: #f9f9f9;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: var(--color-fondo);
+      color: var(--color-texto);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
     header {
-      background-color: #1e2e2b;
-      padding: 40px 20px 20px;
+      background-image: url('imagenes/encabezado.jpg'); /* Cambiar por tu imagen */
+      background-size: cover;
+      background-position: center;
+      color: white;
       text-align: center;
-      border-bottom: 1px solid #2c3e36;
+      padding: 80px 20px;
     }
 
-    .header-title {
-      font-size: 48px;
-      color: #ffffff;
-      font-weight: 300;
-      margin: 0;
+    header h1 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 3em;
+      margin-bottom: 10px;
     }
 
-    .header-subtitle {
-      font-size: 20px;
-      color: #d0d0d0;
-      margin: 10px 0 20px;
+    header p {
+      font-size: 1.5em;
     }
 
-    .cta-buttons {
-      margin-top: 30px;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .cta-buttons a,
-    #lang-btn {
-      margin: 0;
-      padding: 12px 20px;
-      border: 2px solid #ffffff;
-      border-radius: 6px;
-      color: #ffffff;
-      font-weight: bold;
-      text-decoration: none;
-      cursor: pointer;
-      background-color: transparent;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    .cta-buttons a:hover,
-    #lang-btn:hover {
-      background-color: #ffffff;
-      color: #1e2e2b;
-    }
-
-    .projects-grid {
+    section.proyectos {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
       padding: 40px 20px;
       max-width: 1200px;
-      margin: 0 auto;
+      margin: auto;
     }
 
-    .project-card {
-      background-color: #ffffff;
-      border-radius: 12px;
+    .proyecto {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       overflow: hidden;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-align: center;
-      color: #333;
+      transition: transform 0.3s;
     }
 
-    .project-card:hover {
+    .proyecto:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     }
 
-    .project-card img {
+    .proyecto img {
       width: 100%;
-      height: auto;
       display: block;
     }
 
-    .project-card h2 {
+    .proyecto h3 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.3em;
       margin: 15px;
-      font-size: 20px;
-      color: #007acc;
     }
 
-    .project-card p {
-      margin: 0 15px 20px;
-      font-size: 14px;
+    .proyecto p {
+      font-size: 0.95em;
+      margin: 0 15px 15px;
       color: #555;
+    }
+
+    footer {
+      background-color: var(--color-principal);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: var(--color-secundario);
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1 class="header-title">Carla Borda</h1>
-    <p class="header-subtitle">Interior Designer</p>
 
-    <div class="cta-buttons">
-      <a href="" target="_blank">LinkedIn</a>
-      <a href="mailto:carlaborda@upc.edu.ar">Email</a>
-      <a href="/portfolio/CV-Carla-Borda.pdf" download>Download CV</a>
-      <button id="lang-btn">Español</button>
-    </div>
+  <header>
+    <h1>Carla Borda</h1>
+    <p>Diseñadora de Interiores | Interior Designer</p>
   </header>
 
-  <div class="projects-grid">
-    <!-- Proyecto 1 -->
-    <div class="project-card">
-      <a href="villa-monge.html">
-        <img src="imagenespf/titlepage.png" alt="Villa Monge" />
-      </a>
-      <h2 id="proj1-title">Project 1: Villa Monge</h2>
-      <p id="proj1-desc">Residential interior design project in Switzerland, focused on blending natural textures, soft lighting, and contemporary functionality to create a calm and harmonious living space.</p>
-    </div>
-
-    <!-- Proyecto 2 -->
-    <div class="project-card">
+  <section class="proyectos">
+    <div class="proyecto">
       <a href="van-interior.html">
-        <img src="imagenespf/6.png" alt="Van Interior Design" />
+        <img src="imagenespf/1.png" alt="Van Interior">
+        <h3>Van Interior</h3>
+        <p>Render de interior de van con distribución funcional y estética moderna.<br>Interior van render with functional layout and modern aesthetic.</p>
       </a>
-      <h2 id="proj2-title">Project 2: Van Interior</h2>
-      <p id="proj2-desc">Interior renders of a camper van concept, exploring material textures, lighting, and layout visualization for a functional and cozy mobile space.</p>
     </div>
-  </div>
 
-  <script>
-    const langBtn = document.getElementById('lang-btn');
+    <div class="proyecto">
+      <a href="villa-monge.html">
+        <img src="imagenespf/villa-monge.jpg" alt="Villa Monge">
+        <h3>Villa Monge</h3>
+        <p>Proyecto residencial combinando iluminación suave y texturas naturales.<br>Residential project combining soft lighting and natural textures.</p>
+      </a>
+    </div>
 
-    const texts = {
-      en: {
-        langBtn: 'Español',
-        proj1Title: 'Project 1: Villa Monge',
-        proj1Desc: 'Residential interior design project in Switzerland, focused on blending natural textures, soft lighting, and contemporary functionality to create a calm and harmonious living space.',
-        proj2Title: 'Project 2: Van Interior',
-        proj2Desc: 'Interior renders of a camper van concept, exploring material textures, lighting, and layout visualization for a functional and cozy mobile space.'
-      },
-      es: {
-        langBtn: 'English',
-        proj1Title: 'Proyecto 1: Villa Monge',
-        proj1Desc: 'Proyecto de interiorismo residencial en Suiza, que combina texturas naturales, iluminación suave y funcionalidad contemporánea para crear un espacio armónico y confortable.',
-        proj2Title: 'Proyecto 2: Van Interior',
-        proj2Desc: 'Renders interiores de una van camper, explorando texturas de materiales, iluminación y la visualización de la distribución para un espacio móvil funcional y acogedor.'
-      }
-    };
+    <!-- Agregá más proyectos aquí siguiendo el mismo formato -->
+  </section>
 
-    let currentLang = 'en';
+  <footer>
+    <p>Contacto: <a href="mailto:carlaborda@email.com">carlaborda@email.com</a></p>
+    <p>Sígueme en <a href="https://www.linkedin.com/in/carlaborda" target="_blank">LinkedIn</a></p>
+  </footer>
 
-    langBtn.addEventListener('click', () => {
-      currentLang = currentLang === 'en' ? 'es' : 'en';
-      document.getElementById('proj1-title').textContent = texts[currentLang].proj1Title;
-      document.getElementById('proj1-desc').textContent = texts[currentLang].proj1Desc;
-      document.getElementById('proj2-title').textContent = texts[currentLang].proj2Title;
-      document.getElementById('proj2-desc').textContent = texts[currentLang].proj2Desc;
-      langBtn.textContent = texts[currentLang].langBtn;
-    });
-  </script>
 </body>
 </html>
+
+
 
 
 
