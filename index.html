@@ -6,9 +6,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --color-principal: #4caf50; /* Verde suave */
+      --color-principal: #4caf50;
       --color-fondo: #f5f5f5;
       --color-texto: #222;
+      --overlay-bg: rgba(0,0,0,0.65);
       --color-hover: rgba(0,0,0,0.05);
     }
 
@@ -19,6 +20,8 @@
       background-color: var(--color-fondo);
       color: var(--color-texto);
     }
+
+    a { text-decoration: none; color: inherit; }
 
     header {
       text-align: center;
@@ -47,10 +50,9 @@
     }
 
     .proyecto {
-      background-color: white;
+      position: relative;
       border-radius: 12px;
       overflow: hidden;
-      position: relative;
       cursor: pointer;
       transition: transform 0.3s, box-shadow 0.3s;
     }
@@ -63,21 +65,43 @@
     .proyecto img {
       width: 100%;
       display: block;
+      transition: transform 0.3s;
     }
 
-    .proyecto-info {
-      padding: 15px;
+    .proyecto:hover img {
+      transform: scale(1.05);
     }
 
-    .proyecto-info h3 {
-      font-size: 1.25em;
-      font-weight: 600;
-      margin-bottom: 8px;
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--overlay-bg);
+      color: white;
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
     }
 
-    .proyecto-info p {
+    .proyecto:hover .overlay {
+      opacity: 1;
+    }
+
+    .overlay h3 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .overlay p {
       font-size: 0.95em;
-      color: #555;
       line-height: 1.4em;
     }
 
@@ -107,7 +131,7 @@
     <div class="proyecto">
       <a href="van-interior.html">
         <img src="imagenespf/1.png" alt="Van Interior">
-        <div class="proyecto-info">
+        <div class="overlay">
           <h3>Van Interior</h3>
           <p>Render del interior de la van mostrando distribución funcional y estética moderna.<br>Van interior render showcasing functional layout and modern design.</p>
         </div>
@@ -117,7 +141,7 @@
     <div class="proyecto">
       <a href="villa-monge.html">
         <img src="imagenespf/villa-monge.jpg" alt="Villa Monge">
-        <div class="proyecto-info">
+        <div class="overlay">
           <h3>Villa Monge</h3>
           <p>Proyecto residencial con iluminación suave y texturas naturales.<br>Residential project with soft lighting and natural textures.</p>
         </div>
@@ -133,6 +157,7 @@
 
 </body>
 </html>
+
 
 
 
