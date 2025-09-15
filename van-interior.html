@@ -15,7 +15,6 @@
       margin: 20px 0;
     }
 
-    /* Contenedor del slider */
     .slider {
       position: relative;
       max-width: 900px;
@@ -25,17 +24,16 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
 
-    /* Imágenes */
     .slides {
       display: flex;
       transition: transform 0.5s ease-in-out;
     }
+
     .slides img {
       width: 100%;
       border-radius: 10px;
     }
 
-    /* Botones */
     .prev, .next {
       position: absolute;
       top: 50%;
@@ -52,7 +50,6 @@
     .prev { left: 10px; }
     .next { right: 10px; }
 
-    /* Puntos de navegación */
     .dots {
       text-align: center;
       margin: 10px 0;
@@ -69,6 +66,19 @@
     .dot.active {
       background-color: #717171;
     }
+
+    .description {
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 10px;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      font-size: 16px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
   </style>
 </head>
 <body>
@@ -77,11 +87,12 @@
   <!-- Slider 1 -->
   <div class="slider">
     <div class="slides">
-      <img src="imagenespf/1.png" alt="Van Interior 1">
-      <img src="imagenespf/2.png" alt="Van Interior 2">
-      <img src="imagenespf/3.png" alt="Van Interior 3">
-      <img src="imagenespf/4.png" alt="Van Interior 4">
+      <img src="imagenespf/1.png" alt="">
+      <img src="imagenespf/2.png" alt="">
+      <img src="imagenespf/3.png" alt="">
+      <img src="imagenespf/4.png" alt="">
     </div>
+    <div class="description"></div>
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
     <div class="dots"></div>
@@ -90,13 +101,14 @@
   <!-- Slider 2 -->
   <div class="slider">
     <div class="slides">
-      <img src="imagenespf/5.png" alt="Van Interior 5">
-      <img src="imagenespf/6.png" alt="Van Interior 6">
-      <img src="imagenespf/7.png" alt="Van Interior 7">
-      <img src="imagenespf/9.png" alt="Van Interior 9">
-      <img src="imagenespf/10.png" alt="Van Interior 10">
-      <img src="imagenespf/11.png" alt="Van Interior 11">
+      <img src="imagenespf/5.png" alt="">
+      <img src="imagenespf/6.png" alt="">
+      <img src="imagenespf/7.png" alt="">
+      <img src="imagenespf/9.png" alt="">
+      <img src="imagenespf/10.png" alt="">
+      <img src="imagenespf/11.png" alt="">
     </div>
+    <div class="description"></div>
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
     <div class="dots"></div>
@@ -105,12 +117,13 @@
   <!-- Slider 3 -->
   <div class="slider">
     <div class="slides">
-      <img src="imagenespf/8.png" alt="Van Interior 8">
-      <img src="imagenespf/12.png" alt="Van Interior 12">
-      <img src="imagenespf/13.png" alt="Van Interior 13">
-      <img src="imagenespf/14.png" alt="Van Interior 14">
-      <img src="imagenespf/15.png" alt="Van Interior 15">
+      <img src="imagenespf/8.png" alt="">
+      <img src="imagenespf/12.png" alt="">
+      <img src="imagenespf/13.png" alt="">
+      <img src="imagenespf/14.png" alt="">
+      <img src="imagenespf/15.png" alt="">
     </div>
+    <div class="description"></div>
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
     <div class="dots"></div>
@@ -119,9 +132,10 @@
   <!-- Slider 4 -->
   <div class="slider">
     <div class="slides">
-      <img src="imagenespf/16.png" alt="Van Interior 16">
-      <img src="imagenespf/17.png" alt="Van Interior 17">
+      <img src="imagenespf/16.png" alt="">
+      <img src="imagenespf/17.png" alt="">
     </div>
+    <div class="description"></div>
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
     <div class="dots"></div>
@@ -130,13 +144,45 @@
   <script>
     const sliders = document.querySelectorAll('.slider');
 
-    sliders.forEach(slider => {
+    // Descripciones bilingües por slider
+    const allDescriptions = [
+      [ // Slider 1
+        "Vista general del interior de la van. | General view of the van interior.",
+        "Distribución de asientos y almacenamiento. | Seating and storage layout.",
+        "Detalle de la zona del conductor. | Driver area detail.",
+        "Perspectiva del espacio principal. | Main space perspective."
+      ],
+      [ // Slider 2
+        "Zona de cocina compacta. | Compact kitchen area.",
+        "Almacenamiento para utensilios y alimentos. | Storage for utensils and food.",
+        "Detalle de la mesa plegable. | Foldable table detail.",
+        "Área de preparación de alimentos. | Food preparation area.",
+        "Espacio para nevera portátil. | Portable fridge space.",
+        "Organización general de la cocina. | Overall kitchen organization."
+      ],
+      [ // Slider 3
+        "Asientos convertibles en cama. | Convertible seats into bed.",
+        "Zona de descanso cómoda. | Comfortable resting area.",
+        "Almacenamiento debajo de los asientos. | Under-seat storage.",
+        "Detalles de los textiles y acabados. | Textiles and finishes detail.",
+        "Perspectiva del área de descanso. | Rest area perspective."
+      ],
+      [ // Slider 4
+        "Iluminación LED y diseño moderno. | LED lighting and modern design.",
+        "Detalles de acabados interiores. | Interior finishes details."
+      ]
+    ];
+
+    sliders.forEach((slider, sliderIndex) => {
       const slides = slider.querySelector('.slides');
       const images = slider.querySelectorAll('img');
       const prevBtn = slider.querySelector('.prev');
       const nextBtn = slider.querySelector('.next');
       const dotsContainer = slider.querySelector('.dots');
+      const descriptionDiv = slider.querySelector('.description');
       let index = 0;
+
+      const descriptions = allDescriptions[sliderIndex];
 
       // Crear puntos de navegación
       images.forEach((_, i) => {
@@ -155,7 +201,11 @@
         slides.style.transform = `translateX(${-index * 100}%)`;
         dots.forEach(dot => dot.classList.remove('active'));
         dots[index].classList.add('active');
+        descriptionDiv.textContent = descriptions[index];
       }
+
+      // Mostrar la primera slide al cargar
+      showSlide(0);
 
       prevBtn.addEventListener('click', () => showSlide(index - 1));
       nextBtn.addEventListener('click', () => showSlide(index + 1));
@@ -163,6 +213,8 @@
   </script>
 </body>
 </html>
+
+
 
 
 
