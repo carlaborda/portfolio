@@ -28,7 +28,6 @@ a.back-link:hover{color:#3d9d82;text-decoration:underline;}
 header.project-header {margin-bottom:40px; border-bottom:2px solid #d7e1db; padding-bottom:10px;}
 header.project-header h1 {margin:0 0 5px; font-weight:800; font-size:2.8rem; color:#1a6b5f;}
 header.project-header p {margin:0; color:#4e6b57; font-style:italic; font-weight:600;}
-
 button#lang-btn {padding:6px 12px; margin-top:10px; border-radius:6px; border:2px solid #1a6b5f; background:#1a6b5f; color:white; cursor:pointer; font-weight:bold;}
 
 h2 {color:#1a6b5f; margin-top:50px; margin-bottom:15px; font-weight:700; font-size:1.8rem;}
@@ -51,23 +50,29 @@ footer { max-width:900px; margin:40px auto 20px; text-align:center; color:#1a6b5
     <button id="lang-btn">Español</button>
   </header>
 
-  <p id="desc1" class="fade-in-text">Villa Monge is a residential interior design project located in Switzerland. The main concept was to balance natural textures and soft lighting with contemporary functionality.</p>
-  <p id="desc2" class="fade-in-text">The proposal integrates locally sourced materials and a spatial flow that encourages connection between interior and exterior spaces.</p>
+  <p id="proj-desc" class="fade-in-text">
+    Villa Monge is a residential interior design project located in Switzerland. The main concept
+    was to balance natural textures and soft lighting with contemporary functionality.
+  </p>
+  <p class="fade-in-text">
+    The proposal integrates locally sourced materials and a spatial flow that encourages connection between
+    interior and exterior spaces.
+  </p>
 
-  <img src="imagenespf/titlepage.png" alt="Villa Monge Cover" class="fade-in-text">
-  <img src="imagenespf/theproject.png" alt="Villa Monge Info" class="fade-in-text">
+  <img src="imagenespf/titlepage.png" alt="Villa Monge - Cover Image" class="fade-in" />
+  <img src="imagenespf/theproject.png" alt="Villa Monge - Info Image" class="fade-in" />
   <h2 class="fade-in-text">Bathroom</h2>
   <h2 class="fade-in-text">Concept Board</h2>
-  <img src="imagenespf/moodboardbaño.png" alt="Moodboard" class="fade-in-text">
+  <img src="imagenespf/moodboardbaño.png" alt="Villa Monge - moodboards" class="fade-in" />
   <h2 class="fade-in-text">Axonometric Projection</h2>
-  <img src="imagenespf/axobath.png" alt="Axonometric" class="fade-in-text">
+  <img src="imagenespf/axobath.png" alt="Villa Monge - axo" class="fade-in" />
   <h2 class="fade-in-text">Layouts</h2>
-  <img src="imagenespf/layoutplantabath.png" alt="Layouts" class="fade-in-text">
+  <img src="imagenespf/layoutplantabath.png" alt="Villa Monge - layouts" class="fade-in" />
   <h2 class="fade-in-text">Section A</h2>
-  <img src="imagenespf/layoutsectiona.png" alt="Section A" class="fade-in-text">
+  <img src="imagenespf/layoutsectiona.png" alt="Villa Monge - layouts" class="fade-in" />
   <h2 class="fade-in-text">3D Renders</h2>
-  <img src="imagenespf/renderbañozoomout.png" alt="Render" class="fade-in-text">
-  <img src="imagenespf/renderbañocloseup.png" alt="Render" class="fade-in-text">
+  <img src="imagenespf/renderbañozoomout.png" alt="Villa Monge - renders" class="fade-in" />
+  <img src="imagenespf/renderbañocloseup.png" alt="Villa Monge - renders" class="fade-in" />
 </div>
 
 <footer>
@@ -75,49 +80,39 @@ footer { max-width:900px; margin:40px auto 20px; text-align:center; color:#1a6b5
 </footer>
 
 <script>
-// Fade-in on scroll
+// Fade-in
 function handleFadeIn(){
-  const fadeElems = document.querySelectorAll('.fade-in-text');
+  const fadeElems = document.querySelectorAll('.fade-in-text, .fade-in');
   const windowBottom = window.innerHeight;
   fadeElems.forEach(el=>{
     const rect = el.getBoundingClientRect();
-    if(rect.top < windowBottom -50) el.classList.add('visible');
+    if(rect.top < windowBottom-50) el.classList.add('visible');
   });
 }
 window.addEventListener('scroll',handleFadeIn);
 window.addEventListener('load',handleFadeIn);
 
-// Idioma independiente
+// Idioma
 const langBtn = document.getElementById('lang-btn');
+const projTitle = document.getElementById('proj-title');
+const projSubtitle = document.getElementById('proj-subtitle');
+const projDesc = document.getElementById('proj-desc');
+
 const texts = {
-  en:{
-    title:'Villa Monge',
-    subtitle:'Residential Interior Design Project — Switzerland, 2024',
-    desc1:'Villa Monge is a residential interior design project located in Switzerland. The main concept was to balance natural textures and soft lighting with contemporary functionality.',
-    desc2:'The proposal integrates locally sourced materials and a spatial flow that encourages connection between interior and exterior spaces.'
-  },
-  es:{
-    title:'Villa Monge',
-    subtitle:'Proyecto de interiorismo residencial en Suiza',
-    desc1:'Villa Monge es un proyecto de interiorismo residencial ubicado en Suiza. El concepto principal es equilibrar texturas naturales y luz suave con funcionalidad contemporánea.',
-    desc2:'La propuesta integra materiales locales y un flujo espacial que fomenta la conexión entre interiores y exteriores.'
-  }
+  en:{title:'Villa Monge', subtitle:'Residential Interior Design Project — Switzerland, 2024', desc:'Villa Monge is a residential interior design project located in Switzerland. The main concept was to balance natural textures and soft lighting with contemporary functionality.'},
+  es:{title:'Villa Monge', subtitle:'Proyecto de interiorismo residencial en Suiza', desc:'Villa Monge es un proyecto de interiorismo residencial en Suiza. El concepto principal es equilibrar texturas naturales e iluminación suave con funcionalidad contemporánea.'}
 };
 let currentLang = 'en';
-langBtn.addEventListener('click', ()=>{
+langBtn.addEventListener('click',()=>{
   currentLang = currentLang==='en'?'es':'en';
-  document.getElementById('proj-title').textContent = texts[currentLang].title;
-  document.getElementById('proj-subtitle').textContent = texts[currentLang].subtitle;
-  document.getElementById('desc1').textContent = texts[currentLang].desc1;
-  document.getElementById('desc2').textContent = texts[currentLang].desc2;
+  projTitle.textContent = texts[currentLang].title;
+  projSubtitle.textContent = texts[currentLang].subtitle;
+  projDesc.textContent = texts[currentLang].desc;
+  langBtn.textContent = currentLang==='en'?'Español':'English';
 });
 </script>
 </body>
 </html>
-
-
-
-
 
 
 
