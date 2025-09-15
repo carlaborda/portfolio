@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Carla Borda - Portfolio</title>
   <style>
-    :root{
+    :root {
       --bg: #0f1e1b;
-      --panel: #1e2e2b;
-      --accent: #4caf50;
-      --card-bg: #ffffff;
-      --muted: #d0d0d0;
+      --overlay: rgba(0,0,0,0.55);
+      --accent: #ffffff;
     }
 
     body {
@@ -18,93 +16,76 @@
       font-family: 'Arial', sans-serif;
       background-color: var(--bg);
       color: #f9f9f9;
-      -webkit-font-smoothing:antialiased;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* HEADER / HERO */
+    /* ===== HERO PORTADA ===== */
     header {
-      background-color: var(--panel);
-      padding: 32px 20px 26px;
-      border-bottom: 1px solid #23322f;
-    }
-
-    .header-inner{
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 420px;
-      gap: 24px;
+      position: relative;
+      height: 90vh;
+      min-height: 500px;
+      background: url("imagenespf/5.png") no-repeat center center/cover;
+      display: flex;
       align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
     }
 
-    .hero-left {
-      padding-right: 10px;
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--overlay);
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      padding: 20px;
     }
 
     .header-title {
-      font-size: 44px;
-      color: #ffffff;
+      font-size: clamp(2rem, 6vw, 4rem);
       font-weight: 300;
-      margin: 0 0 8px 0;
-      letter-spacing: -0.5px;
+      margin: 0 0 10px;
     }
 
     .header-subtitle {
-      font-size: 18px;
-      color: var(--muted);
-      margin: 0 0 14px 0;
+      font-size: 1.2rem;
+      color: #d0d0d0;
+      margin: 0 0 20px;
     }
 
     .cta-buttons {
-      margin-top: 16px;
+      margin-top: 25px;
       display: flex;
-      justify-content: flex-start;
-      gap: 12px;
+      justify-content: center;
+      gap: 15px;
       flex-wrap: wrap;
-      align-items: center;
     }
 
     .cta-buttons a,
     #lang-btn {
-      margin: 0;
-      padding: 10px 14px;
-      border: 2px solid #ffffff;
+      padding: 10px 16px;
+      border: 2px solid var(--accent);
       border-radius: 8px;
-      color: #ffffff;
-      font-weight: 700;
+      background-color: transparent;
+      color: var(--accent);
+      font-weight: bold;
       text-decoration: none;
       cursor: pointer;
-      background-color: transparent;
-      transition: all 0.18s ease;
-      font-size: 14px;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     .cta-buttons a:hover,
     #lang-btn:hover {
-      background-color: #ffffff;
-      color: var(--panel);
-      border-color: #ffffff;
+      background-color: var(--accent);
+      color: #000;
     }
 
-    /* hero image (portada) */
-    .hero-right {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .hero-img {
-      width: 100%;
-      max-width: 420px;
-      border-radius: 14px;
-      box-shadow: 0 18px 45px rgba(0,0,0,0.45);
-      object-fit: cover;
-      display: block;
-      border: 6px solid rgba(255,255,255,0.03);
-      background: #000;
-    }
-
-    /* PROJECT GRID */
+    /* ===== PROYECTOS ===== */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -115,19 +96,17 @@
     }
 
     .project-card {
-      background-color: var(--card-bg);
+      background-color: #fff;
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 6px 22px rgba(0, 0, 0, 0.35);
       transition: transform 0.28s ease, box-shadow 0.28s ease;
       text-align: center;
       color: #333;
-      display: flex;
-      flex-direction: column;
     }
 
     .project-card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-6px);
       box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
     }
 
@@ -148,48 +127,29 @@
       margin: 0 16px 18px;
       font-size: 14px;
       color: #555;
-      flex: 1;
     }
 
-    /* small screens */
-    @media (max-width: 880px){
-      .header-inner{
-        grid-template-columns: 1fr;
-        gap: 14px;
-        text-align: center;
+    @media (max-width: 600px) {
+      .header-title {
+        font-size: 2rem;
       }
-      .cta-buttons {
-        justify-content: center;
+      .header-subtitle {
+        font-size: 1rem;
       }
-      .hero-left { order: 1; }
-      .hero-right { order: 2; }
-      .hero-img { max-width: 80%; }
-    }
-
-    @media (max-width: 420px){
-      .project-card img { height: 160px; }
-      .header-title { font-size: 34px; }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="header-inner">
-      <div class="hero-left">
-        <h1 id="header-title" class="header-title">Carla Borda</h1>
-        <p id="header-subtitle" class="header-subtitle">Interior Designer</p>
+    <div class="header-content">
+      <h1 id="header-title" class="header-title">Carla Borda</h1>
+      <p id="header-subtitle" class="header-subtitle">Interior Designer</p>
 
-        <div class="cta-buttons">
-          <a id="link-linkedin" href="" target="_blank">LinkedIn</a>
-          <a id="link-email" href="mailto:carlaborda@upc.edu.ar">Email</a>
-          <a id="link-cv" href="/portfolio/CV-Carla-Borda.pdf" download>Download CV</a>
-          <button id="lang-btn">Español</button>
-        </div>
-      </div>
-
-      <!-- ===== Aquí usamos imagenespf/5.png como portada ===== -->
-      <div class="hero-right">
-        <img class="hero-img" src="imagenespf/5.png" alt="Portada - proyecto destacado (5.png)">
+      <div class="cta-buttons">
+        <a id="link-linkedin" href="" target="_blank">LinkedIn</a>
+        <a id="link-email" href="mailto:carlaborda@upc.edu.ar">Email</a>
+        <a id="link-cv" href="/portfolio/CV-Carla-Borda.pdf" download>Download CV</a>
+        <button id="lang-btn">Español</button>
       </div>
     </div>
   </header>
@@ -198,41 +158,36 @@
     <div class="projects-grid">
       <!-- Proyecto 1 -->
       <div class="project-card">
-        <a href="villa-monge.html" aria-label="Abrir Villa Monge">
+        <a href="villa-monge.html">
           <img src="imagenespf/titlepage.png" alt="Villa Monge" />
         </a>
         <h2 id="proj1-title">Project 1: Villa Monge</h2>
-        <p id="proj1-desc">Residential interior design project in Switzerland, focused on blending natural textures, soft lighting, and contemporary functionality to create a calm and harmonious living space.</p>
+        <p id="proj1-desc">
+          Residential interior design project in Switzerland, focused on blending natural textures, soft lighting, and contemporary functionality to create a calm and harmonious living space.
+        </p>
       </div>
 
       <!-- Proyecto 2 -->
       <div class="project-card">
-        <a href="van-interior.html" aria-label="Abrir Van Interior">
+        <a href="van-interior.html">
           <img src="imagenespf/6.jpg" alt="Van Interior Design" />
         </a>
         <h2 id="proj2-title">Project 2: Van Interior</h2>
-        <p id="proj2-desc">Interior renders of a camper van concept, exploring material textures, lighting, and layout visualization for a functional and cozy mobile space.</p>
+        <p id="proj2-desc">
+          Interior renders of a camper van concept, exploring material textures, lighting, and layout visualization for a functional and cozy mobile space.
+        </p>
       </div>
-
-      <!-- Podés duplicar project-card y cambiar src/links para agregar más proyectos -->
     </div>
   </main>
 
   <script>
-    // Traducciones y actualización de textos (sin recargar)
     const langBtn = document.getElementById('lang-btn');
-    const linkLinkedin = document.getElementById('link-linkedin');
-    const linkEmail = document.getElementById('link-email');
-    const linkCV = document.getElementById('link-cv');
 
     const texts = {
       en: {
         langBtn: 'Español',
         headerTitle: 'Carla Borda',
         headerSubtitle: 'Interior Designer',
-        linkedIn: 'LinkedIn',
-        email: 'Email',
-        downloadCV: 'Download CV',
         proj1Title: 'Project 1: Villa Monge',
         proj1Desc: 'Residential interior design project in Switzerland, focused on blending natural textures, soft lighting, and contemporary functionality to create a calm and harmonious living space.',
         proj2Title: 'Project 2: Van Interior',
@@ -242,9 +197,6 @@
         langBtn: 'English',
         headerTitle: 'Carla Borda',
         headerSubtitle: 'Diseñadora de Interiores',
-        linkedIn: 'LinkedIn',
-        email: 'Correo',
-        downloadCV: 'Descargar CV',
         proj1Title: 'Proyecto 1: Villa Monge',
         proj1Desc: 'Proyecto de interiorismo residencial en Suiza, que combina texturas naturales, iluminación suave y funcionalidad contemporánea para crear un espacio armónico y confortable.',
         proj2Title: 'Proyecto 2: Van Interior',
@@ -252,34 +204,23 @@
       }
     };
 
-    let currentLang = 'en'; // el HTML inicial está en inglés
-    // inicializo el texto del botón por si no coincide
-    langBtn.textContent = texts[currentLang].langBtn;
+    let currentLang = 'en';
 
     langBtn.addEventListener('click', () => {
       currentLang = currentLang === 'en' ? 'es' : 'en';
-
-      // header
       document.getElementById('header-title').textContent = texts[currentLang].headerTitle;
       document.getElementById('header-subtitle').textContent = texts[currentLang].headerSubtitle;
-
-      // ctas
-      linkLinkedin.textContent = texts[currentLang].linkedIn;
-      linkEmail.textContent = texts[currentLang].email;
-      linkCV.textContent = texts[currentLang].downloadCV;
-
-      // proyectos
       document.getElementById('proj1-title').textContent = texts[currentLang].proj1Title;
       document.getElementById('proj1-desc').textContent = texts[currentLang].proj1Desc;
       document.getElementById('proj2-title').textContent = texts[currentLang].proj2Title;
       document.getElementById('proj2-desc').textContent = texts[currentLang].proj2Desc;
-
-      // botón
       langBtn.textContent = texts[currentLang].langBtn;
     });
   </script>
 </body>
 </html>
+
+
 
 
 
