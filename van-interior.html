@@ -46,8 +46,9 @@ img.visible {opacity:1; transform:translateY(0);}
 .dots {text-align:center; margin:10px 0;}
 .dot {display:inline-block; width:12px; height:12px; margin:5px; background:#bbb; border-radius:50%; cursor:pointer;}
 .dot.active {background:#717171;}
-.description-box {text-align:left; margin-top:15px; font-size:1rem; color:#2e3c36;}
-@media(max-width:600px){body{padding:20px 10px;} header.project-header h1{font-size:2rem;} h2{font-size:1.4rem;}}
+.description-box {background:#f0f0f0; color:#2e3c36; padding:15px; border-radius:8px; margin-top:15px; font-size:1.1rem;}
+footer { max-width:900px; margin:40px auto 20px; text-align:center; color:#1a6b5f; font-weight:600; font-size:0.9rem; border-top:1px solid #d7e1db; padding-top:15px;}
+@media(max-width:600px){ body{padding:20px 10px;} header.project-header h1{font-size:2rem;} h2{font-size:1.4rem;} }
 </style>
 </head>
 <body>
@@ -56,16 +57,18 @@ img.visible {opacity:1; transform:translateY(0);}
 
   <header class="project-header fade-in-text">
     <h1 id="proj-title">Van Interior</h1>
-    <p id="proj-subtitle">Interior renders of a camper van concept</p>
+    <p id="proj-subtitle">Interior Design of Camper Van — 2024</p>
     <button id="lang-btn">Español</button>
   </header>
 
-  <div class="description-box" id="proj-desc">
-    This project explores material textures, lighting, and layout visualization for a functional and cozy mobile space.
+  <!-- Descripción -->
+  <div id="desc-box" class="description-box fade-in-text">
+    This project explores interior design for a camper van, including material textures, lighting, and layout for a functional and cozy mobile space.
   </div>
 
-  <!-- Slider -->
-  <div class="slider fade-in">
+  <!-- Slider 1 -->
+  <h2 class="fade-in-text">Main Area</h2>
+  <div class="slider fade-in-text">
     <div class="slides">
       <img src="imagenespf/1.png" alt="">
       <img src="imagenespf/2.png" alt="">
@@ -77,12 +80,58 @@ img.visible {opacity:1; transform:translateY(0);}
     <div class="dots"></div>
   </div>
 
+  <!-- Slider 2 -->
+  <h2 class="fade-in-text">Kitchen</h2>
+  <div class="slider fade-in-text">
+    <div class="slides">
+      <img src="imagenespf/5.png" alt="">
+      <img src="imagenespf/6.png" alt="">
+      <img src="imagenespf/7.png" alt="">
+      <img src="imagenespf/9.png" alt="">
+      <img src="imagenespf/10.png" alt="">
+      <img src="imagenespf/11.png" alt="">
+    </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+    <div class="dots"></div>
+  </div>
+
+  <!-- Slider 3 -->
+  <h2 class="fade-in-text">Sleeping Area</h2>
+  <div class="slider fade-in-text">
+    <div class="slides">
+      <img src="imagenespf/8.png" alt="">
+      <img src="imagenespf/12.png" alt="">
+      <img src="imagenespf/13.png" alt="">
+      <img src="imagenespf/14.png" alt="">
+      <img src="imagenespf/15.png" alt="">
+    </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+    <div class="dots"></div>
+  </div>
+
+  <!-- Slider 4 -->
+  <h2 class="fade-in-text">Lighting & Finishes</h2>
+  <div class="slider fade-in-text">
+    <div class="slides">
+      <img src="imagenespf/16.png" alt="">
+      <img src="imagenespf/17.png" alt="">
+    </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+    <div class="dots"></div>
+  </div>
 </div>
+
+<footer>
+© 2025 Carla Borda — <a href="mailto:carlaborda@upc.edu.ar" style="color:#1a6b5f; text-decoration:none;">Contact</a>
+</footer>
 
 <script>
 // Fade-in
 function handleFadeIn(){
-  const fadeElems = document.querySelectorAll('.fade-in-text, .fade-in');
+  const fadeElems = document.querySelectorAll('.fade-in-text');
   const windowBottom = window.innerHeight;
   fadeElems.forEach(el=>{
     const rect = el.getBoundingClientRect();
@@ -92,63 +141,57 @@ function handleFadeIn(){
 window.addEventListener('scroll',handleFadeIn);
 window.addEventListener('load',handleFadeIn);
 
-// Slider
-const slider = document.querySelector('.slider');
-const slides = slider.querySelector('.slides');
-const images = slider.querySelectorAll('img');
-const prevBtn = slider.querySelector('.prev');
-const nextBtn = slider.querySelector('.next');
-const dotsContainer = slider.querySelector('.dots');
-let index = 0;
-const descriptions = [
-  "General view of the van interior. | Vista general del interior de la van.",
-  "Seating and storage layout. | Distribución de asientos y almacenamiento.",
-  "Driver area detail. | Detalle de la zona del conductor.",
-  "Main space perspective. | Perspectiva del espacio principal."
-];
-// Crear dots
-images.forEach((_,i)=>{
-  const dot=document.createElement('span');
-  dot.classList.add('dot');
-  if(i===0) dot.classList.add('active');
-  dot.addEventListener('click',()=>showSlide(i));
-  dotsContainer.appendChild(dot);
-});
-const dots = dotsContainer.querySelectorAll('.dot');
-
-function showSlide(i){
-  if(i<0) index=images.length-1;
-  else if(i>=images.length) index=0;
-  else index=i;
-  slides.style.transform=`translateX(${-index*100}%)`;
-  dots.forEach(dot=>dot.classList.remove('active'));
-  dots[index].classList.add('active');
-  updateDesc();
-}
-prevBtn.addEventListener('click',()=>showSlide(index-1));
-nextBtn.addEventListener('click',()=>showSlide(index+1));
-function updateDesc(){
-  const descBox=document.getElementById('proj-desc');
-  const currentText = descriptions[index].split('|')[currentLang==='en'?0:1].trim();
-  descBox.textContent=currentText;
-}
-showSlide(0);
-
-// Idioma
+// Idioma independiente
 const langBtn = document.getElementById('lang-btn');
-const projTitle = document.getElementById('proj-title');
-const projSubtitle = document.getElementById('proj-subtitle');
-let currentLang='en';
+const descBox = document.getElementById('desc-box');
+const texts = {
+  en:{title:'Van Interior', subtitle:'Interior Design of Camper Van — 2024', desc:'This project explores interior design for a camper van, including material textures, lighting, and layout for a functional and cozy mobile space.'},
+  es:{title:'Van Interior', subtitle:'Diseño interior de Van Camper — 2024', desc:'Este proyecto explora el diseño interior de una van camper, incluyendo texturas de materiales, iluminación y distribución para un espacio móvil funcional y acogedor.'}
+};
+let currentLang = 'en';
 langBtn.addEventListener('click',()=>{
-  currentLang=currentLang==='en'?'es':'en';
-  projTitle.textContent=currentLang==='en'?'Van Interior':'Van Interior';
-  projSubtitle.textContent=currentLang==='en'?'Interior renders of a camper van concept':'Renders interiores de una van camper';
-  updateDesc();
-  langBtn.textContent=currentLang==='en'?'Español':'English';
+  currentLang = currentLang==='en'?'es':'en';
+  document.getElementById('proj-title').textContent = texts[currentLang].title;
+  document.getElementById('proj-subtitle').textContent = texts[currentLang].subtitle;
+  descBox.textContent = texts[currentLang].desc;
+});
+
+// Sliders
+const sliders = document.querySelectorAll('.slider');
+sliders.forEach((slider)=>{
+  const slides = slider.querySelector('.slides');
+  const images = slider.querySelectorAll('img');
+  const prevBtn = slider.querySelector('.prev');
+  const nextBtn = slider.querySelector('.next');
+  const dotsContainer = slider.querySelector('.dots');
+  let index=0;
+
+  images.forEach((_,i)=>{
+    const dot=document.createElement('span');
+    dot.classList.add('dot');
+    if(i===0) dot.classList.add('active');
+    dot.addEventListener('click',()=> showSlide(i));
+    dotsContainer.appendChild(dot);
+  });
+  const dots=dotsContainer.querySelectorAll('.dot');
+
+  function showSlide(i){
+    if(i<0) index=images.length-1;
+    else if(i>=images.length) index=0;
+    else index=i;
+    slides.style.transform=`translateX(${-index*100}%)`;
+    dots.forEach(d=>d.classList.remove('active'));
+    dots[index].classList.add('active');
+  }
+  showSlide(0);
+  prevBtn.addEventListener('click',()=>showSlide(index-1));
+  nextBtn.addEventListener('click',()=>showSlide(index+1));
 });
 </script>
 </body>
 </html>
+
+
 
 
 
