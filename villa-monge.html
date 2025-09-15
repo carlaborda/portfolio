@@ -1,176 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Villa Monge - Carla Borda</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #e4ede9;
-      margin: 0;
-      padding: 40px 20px;
-      color: #2e3c36;
-      line-height: 1.6;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Villa Monge - Carla Borda</title>
+<style>
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #e4ede9;
+  margin: 0;
+  padding: 40px 20px;
+  color: #2e3c36;
+  line-height: 1.6;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(46, 60, 54, 0.12);
+  border: 1.5px solid #d7e1db;
+}
+a.back-link {
+  display: inline-block;
+  margin-bottom: 30px;
+  color: #1a6b5f;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+a.back-link:hover {color:#3d9d82;text-decoration:underline;}
 
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      background: white;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(46, 60, 54, 0.12);
-      border: 1.5px solid #d7e1db;
-    }
+header.project-header {
+  margin-bottom:40px;
+  border-bottom:2px solid #d7e1db;
+  padding-bottom:10px;
+}
+header.project-header h1 {
+  margin:0 0 5px;
+  font-weight:800;
+  font-size:2.8rem;
+  color:#1a6b5f;
+}
+header.project-header p {
+  margin:0;
+  color:#4e6b57;
+  font-style:italic;
+  font-weight:600;
+}
 
-    a.back-link {
-      display: inline-block;
-      margin-bottom: 30px;
-      color: #1a6b5f;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-    a.back-link:hover { color: #3d9d82; text-decoration: underline; }
+h2 { color:#1a6b5f; margin-top:50px; margin-bottom:15px; font-weight:700; font-size:1.8rem; }
+p.description { font-size:1.1rem; color:#4e6b57; margin-top:15px; margin-bottom:25px; }
 
-    header.project-header {
-      margin-bottom: 40px;
-      border-bottom: 2px solid #d7e1db;
-      padding-bottom: 10px;
-    }
-    header.project-header h1 {
-      margin: 0 0 5px;
-      font-weight: 800;
-      font-size: 2.8rem;
-      color: #1a6b5f;
-    }
-    header.project-header p {
-      margin: 0;
-      color: #4e6b57;
-      font-style: italic;
-      font-weight: 600;
-    }
+img {
+  max-width:100%;
+  height:auto;
+  margin-top:20px;
+  border-radius:10px;
+  box-shadow:0 4px 12px rgba(46,60,54,0.08);
+  border:1px solid #d7e1db;
+  opacity:0;
+  transform:translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+img.visible {opacity:1; transform:translateY(0);}
 
-    h2 { color: #1a6b5f; margin-top: 50px; margin-bottom: 15px; font-weight: 700; font-size: 1.8rem; }
-    p.description { font-size: 1.1rem; color: #4e6b57; margin-top: 15px; margin-bottom: 25px; }
+.fade-in-text { opacity:0; transform:translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+.fade-in-text.visible { opacity:1; transform:translateY(0); }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      margin-top: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(46, 60, 54, 0.08);
-      border: 1px solid #d7e1db;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-    img.visible { opacity: 1; transform: translateY(0); }
+footer { max-width:900px; margin:40px auto 20px; text-align:center; color:#1a6b5f; font-weight:600; font-size:0.9rem; border-top:1px solid #d7e1db; padding-top:15px;}
 
-    .fade-in-text { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-    .fade-in-text.visible { opacity: 1; transform: translateY(0); }
-
-    footer {
-      max-width: 900px;
-      margin: 40px auto 20px;
-      text-align: center;
-      color: #1a6b5f;
-      font-weight: 600;
-      font-size: 0.9rem;
-      border-top: 1px solid #d7e1db;
-      padding-top: 15px;
-    }
-
-    @media (max-width: 600px) {
-      body { padding: 20px 10px; }
-      .container { padding: 20px; }
-      header.project-header h1 { font-size: 2rem; }
-      h2 { font-size: 1.4rem; }
-    }
-  </style>
+@media(max-width:600px){
+  body{padding:20px 10px;}
+  header.project-header h1{font-size:2rem;}
+  h2{font-size:1.4rem;}
+}
+</style>
 </head>
 <body>
-  <div class="container">
-    <a href="index.html" class="back-link fade-in-text">← Back to Portfolio</a>
+<div class="container">
+  <a href="index.html" class="back-link fade-in-text">← Back to Portfolio</a>
 
-    <header class="project-header fade-in-text">
-      <h1 id="header-title">Villa Monge</h1>
-      <p id="header-subtitle">Residential Interior Design Project — Switzerland, 2024</p>
-    </header>
+  <header class="project-header fade-in-text">
+    <h1 id="header-title">Villa Monge</h1>
+    <p id="header-subtitle">Residential Interior Design Project — Switzerland, 2024</p>
+  </header>
 
-    <p id="desc1" class="fade-in-text">
-      Villa Monge is a residential interior design project located in Switzerland. The main concept
-      was to balance natural textures and soft lighting with contemporary functionality.
-    </p>
-    <p id="desc2" class="fade-in-text">
-      The proposal integrates locally sourced materials and a spatial flow that encourages connection between
-      interior and exterior spaces.
-    </p>
+  <p id="desc1" class="fade-in-text">Villa Monge is a residential interior design project located in Switzerland. The main concept was to balance natural textures and soft lighting with contemporary functionality.</p>
+  <p id="desc2" class="fade-in-text">The proposal integrates locally sourced materials and a spatial flow that encourages connection between interior and exterior spaces.</p>
 
-    <img src="imagenespf/titlepage.png" alt="Villa Monge - Cover Image" class="fade-in-text">
-    <img src="imagenespf/theproject.png" alt="Villa Monge - Info Image" class="fade-in-text">
-    <h2 class="fade-in-text">Bathroom</h2>
-    <img src="imagenespf/moodboardbaño.png" alt="Villa Monge - moodboards" class="fade-in-text">
-    <h2 class="fade-in-text">Axonometric Projection</h2>
-    <img src="imagenespf/axobath.png" alt="Villa Monge - axo" class="fade-in-text">
-    <h2 class="fade-in-text">Layouts</h2>
-    <img src="imagenespf/layoutplantabath.png" alt="Villa Monge - layouts" class="fade-in-text">
-    <h2 class="fade-in-text">Section A</h2>
-    <img src="imagenespf/layoutsectiona.png" alt="Villa Monge - section A" class="fade-in-text">
-    <h2 class="fade-in-text">3D Renders</h2>
-    <img src="imagenespf/renderbañozoomout.png" alt="Villa Monge - renders" class="fade-in-text">
-    <img src="imagenespf/renderbañocloseup.png" alt="Villa Monge - renders" class="fade-in-text">
-  </div>
+  <img src="imagenespf/titlepage.png" alt="Villa Monge - Cover Image" class="fade-in-text">
+  <img src="imagenespf/theproject.png" alt="Villa Monge - Info Image" class="fade-in-text">
 
-  <footer>
-    © 2025 Carla Borda — <a href="mailto:carlaborda@upc.edu.ar" style="color:#1a6b5f; text-decoration:none;">Contact</a>
-  </footer>
+  <h2 class="fade-in-text">Bathroom</h2>
+  <img src="imagenespf/axobath.png" alt="Villa Monge - Bathroom Axo" class="fade-in-text">
 
-  <script>
-    // Fade-in scroll
-    function handleFadeIn() {
-      const fadeTexts = document.querySelectorAll('.fade-in-text');
-      const images = document.querySelectorAll('img');
-      const windowBottom = window.innerHeight;
+  <h2 class="fade-in-text">Concept Board</h2>
+  <img src="imagenespf/moodboardbaño.png" alt="Villa Monge - Moodboard" class="fade-in-text">
 
-      fadeTexts.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if(rect.top < windowBottom - 50) el.classList.add('visible');
-      });
-      images.forEach(img => {
-        const rect = img.getBoundingClientRect();
-        if(rect.top < windowBottom - 50) img.classList.add('visible');
-      });
-    }
+  <h2 class="fade-in-text">Layouts</h2>
+  <img src="imagenespf/layoutplantabath.png" alt="Villa Monge - Layouts" class="fade-in-text">
+  <img src="imagenespf/layoutsectiona.png" alt="Villa Monge - Section A" class="fade-in-text">
 
-    window.addEventListener('scroll', handleFadeIn);
-    window.addEventListener('load', handleFadeIn);
+  <h2 class="fade-in-text">3D Renders</h2>
+  <img src="imagenespf/renderbañozoomout.png" alt="Villa Monge - Render" class="fade-in-text">
+  <img src="imagenespf/renderbañocloseup.png" alt="Villa Monge - Render Closeup" class="fade-in-text">
+</div>
 
-    // Idioma
-    let currentLang = localStorage.getItem('siteLang') || 'en';
-    const texts = {
-      en: {
-        headerTitle: 'Villa Monge',
-        headerSubtitle: 'Residential Interior Design Project — Switzerland, 2024',
-        desc1: 'Villa Monge is a residential interior design project located in Switzerland. The main concept was to balance natural textures and soft lighting with contemporary functionality.',
-        desc2: 'The proposal integrates locally sourced materials and a spatial flow that encourages connection between interior and exterior spaces.'
-      },
-      es: {
-        headerTitle: 'Villa Monge',
-        headerSubtitle: 'Proyecto de interiorismo residencial — Suiza, 2024',
-        desc1: 'Villa Monge es un proyecto de interiorismo residencial ubicado en Suiza. El concepto principal fue equilibrar texturas naturales e iluminación suave con funcionalidad contemporánea.',
-        desc2: 'La propuesta integra materiales locales y un flujo espacial que fomenta la conexión entre interiores y exteriores.'
-      }
-    };
+<footer>
+© 2025 Carla Borda — <a href="mailto:carlaborda@upc.edu.ar" style="color:#1a6b5f; text-decoration:none;">Contact</a>
+</footer>
 
-    document.getElementById('header-title').textContent = texts[currentLang].headerTitle;
-    document.getElementById('header-subtitle').textContent = texts[currentLang].headerSubtitle;
-    document.getElementById('desc1').textContent = texts[currentLang].desc1;
-    document.getElementById('desc2').textContent = texts[currentLang].desc2;
-  </script>
+<script>
+// Fade-in scroll
+function handleFadeIn() {
+  const fadeTexts = document.querySelectorAll('.fade-in-text, img');
+  const windowBottom = window.innerHeight;
+  fadeTexts.forEach(el=>{
+    const rect = el.getBoundingClientRect();
+    if(rect.top < windowBottom - 50) el.classList.add('visible');
+  });
+}
+window.addEventListener('scroll', handleFadeIn);
+window.addEventListener('load', handleFadeIn);
+
+// Idioma sincronizado
+let currentLang = localStorage.getItem('siteLang') || 'en';
+const texts = {
+  en:{
+    headerTitle:'Villa Monge',
+    headerSubtitle:'Residential Interior Design Project — Switzerland, 2024',
+    desc1:'Villa Monge is a residential interior design project located in Switzerland. The main concept was to balance natural textures and soft lighting with contemporary functionality.',
+    desc2:'The proposal integrates locally sourced materials and a spatial flow that encourages connection between interior and exterior spaces.'
+  },
+  es:{
+    headerTitle:'Villa Monge',
+    headerSubtitle:'Proyecto de interiorismo residencial — Suiza, 2024',
+    desc1:'Proyecto de interiorismo residencial en Suiza, que combina texturas naturales, iluminación suave y funcionalidad contemporánea.',
+    desc2:'La propuesta integra materiales locales y un flujo espacial que fomenta la conexión entre los espacios interiores y exteriores.'
+  }
+};
+
+document.getElementById('header-title').textContent = texts[currentLang].headerTitle;
+document.getElementById('header-subtitle').textContent = texts[currentLang].headerSubtitle;
+document.getElementById('desc1').textContent = texts[currentLang].desc1;
+document.getElementById('desc2').textContent = texts[currentLang].desc2;
+</script>
 </body>
 </html>
+
 
 
 
