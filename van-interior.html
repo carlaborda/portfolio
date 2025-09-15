@@ -19,7 +19,7 @@
     .slider {
       position: relative;
       max-width: 900px;
-      margin: auto;
+      margin: 30px auto;
       overflow: hidden;
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
@@ -47,14 +47,34 @@
       cursor: pointer;
       border-radius: 50%;
       font-size: 18px;
+      z-index: 10;
     }
     .prev { left: 10px; }
     .next { right: 10px; }
+
+    /* Puntos de navegación */
+    .dots {
+      text-align: center;
+      margin: 10px 0;
+    }
+    .dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin: 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .dot.active {
+      background-color: #717171;
+    }
   </style>
 </head>
 <body>
   <h1>Project 2: Van Interior</h1>
-  
+
+  <!-- Slider 1 -->
   <div class="slider">
     <div class="slides">
       <img src="imagenespf/1.png" alt="Van Interior 1">
@@ -64,9 +84,11 @@
     </div>
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
+    <div class="dots"></div>
   </div>
 
-   <div class="slider">
+  <!-- Slider 2 -->
+  <div class="slider">
     <div class="slides">
       <img src="imagenespf/5.png" alt="Van Interior 5">
       <img src="imagenespf/6.png" alt="Van Interior 6">
@@ -77,8 +99,10 @@
     </div>
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
+    <div class="dots"></div>
   </div>
 
+  <!-- Slider 3 -->
   <div class="slider">
     <div class="slides">
       <img src="imagenespf/8.png" alt="Van Interior 8">
@@ -89,36 +113,58 @@
     </div>
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
+    <div class="dots"></div>
   </div>
 
-   <div class="slider">
+  <!-- Slider 4 -->
+  <div class="slider">
     <div class="slides">
       <img src="imagenespf/16.png" alt="Van Interior 16">
       <img src="imagenespf/17.png" alt="Van Interior 17">
-      </div>
+    </div>
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
+    <div class="dots"></div>
   </div>
 
   <script>
-    const slides = document.querySelector('.slides');
-    const images = document.querySelectorAll('.slides img');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
-    let index = 0;
+    const sliders = document.querySelectorAll('.slider');
 
-    function showSlide(i) {
-      if (i < 0) index = images.length - 1;
-      else if (i >= images.length) index = 0;
-      else index = i;
-      slides.style.transform = `translateX(${-index * 100}%)`;
-    }
+    sliders.forEach(slider => {
+      const slides = slider.querySelector('.slides');
+      const images = slider.querySelectorAll('img');
+      const prevBtn = slider.querySelector('.prev');
+      const nextBtn = slider.querySelector('.next');
+      const dotsContainer = slider.querySelector('.dots');
+      let index = 0;
 
-    prevBtn.addEventListener('click', () => showSlide(index - 1));
-    nextBtn.addEventListener('click', () => showSlide(index + 1));
+      // Crear puntos de navegación
+      images.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => showSlide(i));
+        dotsContainer.appendChild(dot);
+      });
+      const dots = dotsContainer.querySelectorAll('.dot');
+
+      function showSlide(i) {
+        if (i < 0) index = images.length - 1;
+        else if (i >= images.length) index = 0;
+        else index = i;
+        slides.style.transform = `translateX(${-index * 100}%)`;
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[index].classList.add('active');
+      }
+
+      prevBtn.addEventListener('click', () => showSlide(index - 1));
+      nextBtn.addEventListener('click', () => showSlide(index + 1));
+    });
   </script>
 </body>
 </html>
+
+
 
 
 
