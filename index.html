@@ -1,217 +1,219 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Portfolio - Carla Borda</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <title>Project 2: Van Interior</title>
   <style>
-    :root {
-      --color-principal: #4caf50;
-      --color-secundario: #1e1e1e;
-      --color-fondo: #f5f5f5;
-      --color-texto: #222;
-      --overlay-bg: rgba(0,0,0,0.65);
-      --color-hover: rgba(0,0,0,0.05);
-    }
-
-    * { box-sizing: border-box; margin:0; padding:0; }
-
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--color-fondo);
-      color: var(--color-texto);
-      line-height: 1.6;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background: #f8f8f8;
+    }
+    h1 {
+      margin: 20px 0;
     }
 
-    a { text-decoration: none; color: inherit; }
-
-    /* HERO */
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      max-width: 1200px;
-      margin: 0 auto;
-      align-items: center;
-      gap: 40px;
-      padding: 60px 20px;
-    }
-
-    .hero-text {
-      max-width: 500px;
-    }
-
-    .hero h1 {
-      font-size: 3em;
-      font-family: 'Roboto', sans-serif;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      font-size: 1.2em;
-      color: #555;
-      margin-bottom: 20px;
-    }
-
-    .btns {
-      display: flex;
-      gap: 15px;
-    }
-
-    .btn {
-      background: var(--color-principal);
-      color: white;
-      padding: 12px 24px;
-      border-radius: 30px;
-      font-weight: 600;
-      transition: background 0.3s;
-    }
-
-    .btn:hover {
-      background: #3d8b41;
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 2px solid var(--color-principal);
-      color: var(--color-principal);
-    }
-
-    .hero img {
-      max-width: 100%;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-
-    /* PROYECTOS */
-    .proyectos {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-
-    .proyecto {
+    .slider {
       position: relative;
-      border-radius: 12px;
+      max-width: 900px;
+      margin: 30px auto;
       overflow: hidden;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
 
-    .proyecto:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-
-    .proyecto img {
-      width: 100%;
-      display: block;
-      transition: transform 0.3s;
-    }
-
-    .proyecto:hover img {
-      transform: scale(1.05);
-    }
-
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--overlay-bg);
-      color: white;
-      opacity: 0;
-      transition: opacity 0.3s;
+    .slides {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slides img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 50%;
+      font-size: 18px;
+      z-index: 10;
+    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    .dots {
       text-align: center;
-      padding: 20px;
+      margin: 10px 0;
+    }
+    .dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin: 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .dot.active {
+      background-color: #717171;
     }
 
-    .proyecto:hover .overlay {
-      opacity: 1;
-    }
-
-    .overlay h3 {
-      font-size: 1.5em;
-      margin-bottom: 10px;
-      font-family: 'Roboto', sans-serif;
-    }
-
-    .overlay p {
-      font-size: 0.95em;
-      line-height: 1.4em;
-    }
-
-    footer {
+    .description {
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 10px;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
       text-align: center;
-      padding: 30px 20px;
-      color: #555;
-      font-size: 0.95em;
+      font-size: 16px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
     }
-
-    footer a {
-      color: var(--color-principal);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
   </style>
 </head>
 <body>
+  <h1>Project 2: Van Interior</h1>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Hola, soy Carla Borda</h1>
-      <p>Diseñadora de Interiores | Interior Designer</p>
-      <div class="btns">
-        <a href="#proyectos" class="btn">Ver proyectos</a>
-        <a href="mailto:carlaborda@email.com" class="btn btn-outline">Contáctame</a>
-      </div>
+  <!-- Slider 1 -->
+  <div class="slider">
+    <div class="slides">
+      <img src="imagenespf/1.png" alt="">
+      <img src="imagenespf/2.png" alt="">
+      <img src="imagenespf/3.png" alt="">
+      <img src="imagenespf/4.png" alt="">
     </div>
-    <!-- ✅ Aquí cambiamos la imagen a 5.png -->
-    <img src="imagenespf/5.png" alt="Foto de portada de Carla Borda">
-  </section>
+    <div class="description"></div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+    <div class="dots"></div>
+  </div>
 
-  <!-- PROYECTOS -->
-  <section id="proyectos" class="proyectos">
-    <div class="proyecto">
-      <a href="van-interior.html">
-        <img src="imagenespf/1.png" alt="Van Interior">
-        <div class="overlay">
-          <h3>Van Interior</h3>
-          <p>Render del interior de la van mostrando distribución funcional y estética moderna.</p>
-        </div>
-      </a>
+  <!-- Slider 2 -->
+  <div class="slider">
+    <div class="slides">
+      <img src="imagenespf/5.png" alt="">
+      <img src="imagenespf/6.png" alt="">
+      <img src="imagenespf/7.png" alt="">
+      <img src="imagenespf/9.png" alt="">
+      <img src="imagenespf/10.png" alt="">
+      <img src="imagenespf/11.png" alt="">
     </div>
+    <div class="description"></div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+    <div class="dots"></div>
+  </div>
 
-    <div class="proyecto">
-      <a href="villa-monge.html">
-        <img src="imagenespf/villa-monge.jpg" alt="Villa Monge">
-        <div class="overlay">
-          <h3>Villa Monge</h3>
-          <p>Proyecto residencial con iluminación suave y texturas naturales.</p>
-        </div>
-      </a>
+  <!-- Slider 3 -->
+  <div class="slider">
+    <div class="slides">
+      <img src="imagenespf/8.png" alt="">
+      <img src="imagenespf/12.png" alt="">
+      <img src="imagenespf/13.png" alt="">
+      <img src="imagenespf/14.png" alt="">
+      <img src="imagenespf/15.png" alt="">
     </div>
+    <div class="description"></div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+    <div class="dots"></div>
+  </div>
 
-    <!-- Más proyectos aquí -->
-  </section>
+  <!-- Slider 4 -->
+  <div class="slider">
+    <div class="slides">
+      <img src="imagenespf/16.png" alt="">
+      <img src="imagenespf/17.png" alt="">
+    </div>
+    <div class="description"></div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+    <div class="dots"></div>
+  </div>
 
-  <footer>
-    <p>Contacto: <a href="mailto:carlaborda@email.com">carlaborda@email.com</a> |
-    <a href="https://www.linkedin.com/in/carlaborda" target="_blank">LinkedIn</a></p>
-  </footer>
+  <script>
+    const sliders = document.querySelectorAll('.slider');
 
+    // Descripciones bilingües por slider
+    const allDescriptions = [
+      [ // Slider 1
+        "Vista general del interior de la van. | General view of the van interior.",
+        "Distribución de asientos y almacenamiento. | Seating and storage layout.",
+        "Detalle de la zona del conductor. | Driver area detail.",
+        "Perspectiva del espacio principal. | Main space perspective."
+      ],
+      [ // Slider 2
+        "Zona de cocina compacta. | Compact kitchen area.",
+        "Almacenamiento para utensilios y alimentos. | Storage for utensils and food.",
+        "Detalle de la mesa plegable. | Foldable table detail.",
+        "Área de preparación de alimentos. | Food preparation area.",
+        "Espacio para nevera portátil. | Portable fridge space.",
+        "Organización general de la cocina. | Overall kitchen organization."
+      ],
+      [ // Slider 3
+        "Asientos convertibles en cama. | Convertible seats into bed.",
+        "Zona de descanso cómoda. | Comfortable resting area.",
+        "Almacenamiento debajo de los asientos. | Under-seat storage.",
+        "Detalles de los textiles y acabados. | Textiles and finishes detail.",
+        "Perspectiva del área de descanso. | Rest area perspective."
+      ],
+      [ // Slider 4
+        "Iluminación LED y diseño moderno. | LED lighting and modern design.",
+        "Detalles de acabados interiores. | Interior finishes details."
+      ]
+    ];
+
+    sliders.forEach((slider, sliderIndex) => {
+      const slides = slider.querySelector('.slides');
+      const images = slider.querySelectorAll('img');
+      const prevBtn = slider.querySelector('.prev');
+      const nextBtn = slider.querySelector('.next');
+      const dotsContainer = slider.querySelector('.dots');
+      const descriptionDiv = slider.querySelector('.description');
+      let index = 0;
+
+      const descriptions = allDescriptions[sliderIndex];
+
+      // Crear puntos de navegación
+      images.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => showSlide(i));
+        dotsContainer.appendChild(dot);
+      });
+      const dots = dotsContainer.querySelectorAll('.dot');
+
+      function showSlide(i) {
+        if (i < 0) index = images.length - 1;
+        else if (i >= images.length) index = 0;
+        else index = i;
+        slides.style.transform = translateX(${-index * 100}%);
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[index].classList.add('active');
+        descriptionDiv.textContent = descriptions[index];
+      }
+
+      // Mostrar la primera slide al cargar
+      showSlide(0);
+
+      prevBtn.addEventListener('click', () => showSlide(index - 1));
+      nextBtn.addEventListener('click', () => showSlide(index + 1));
+    });
+  </script>
 </body>
 </html>
+
 
 
 
