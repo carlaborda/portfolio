@@ -63,7 +63,7 @@
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* más anchas en escritorio */
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
       padding: 40px 20px;
       max-width: 1200px;
@@ -85,19 +85,23 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     }
 
+    /* Imágenes de proyectos */
     .project-card img {
       width: 100%;
-      aspect-ratio: 4 / 3; /* proporción fija en escritorio */
-      object-fit: cover;
+      height: auto;       /* la altura se ajusta según el ancho */
+      object-fit: cover;  /* recorta ligeramente en escritorio si hace falta */
       display: block;
+      border-bottom: 1px solid #ccc;
+      border-radius: 12px 12px 0 0;
     }
 
-    /* 📱 En pantallas pequeñas mostrar imagen completa sin recorte */
+    /* Ajustes para móvil */
     @media (max-width: 600px) {
       .project-card img {
-        aspect-ratio: auto;
+        object-fit: contain; /* muestra toda la imagen sin recorte */
+        max-height: 250px;   /* límite de altura para que no se estire demasiado */
+        width: 100%;
         height: auto;
-        object-fit: contain;
       }
     }
 
@@ -180,6 +184,8 @@
   </script>
 </body>
 </html>
+
+
 
 
 
