@@ -7,6 +7,7 @@
   <style>
     :root {
       --color-principal: #4caf50;
+      --color-secundario: #1e1e1e;
       --color-fondo: #f5f5f5;
       --color-texto: #222;
       --overlay-bg: rgba(0,0,0,0.65);
@@ -19,27 +20,70 @@
       font-family: 'Inter', sans-serif;
       background-color: var(--color-fondo);
       color: var(--color-texto);
+      line-height: 1.6;
     }
 
     a { text-decoration: none; color: inherit; }
 
-    header {
-      text-align: center;
-      padding: 60px 20px 40px;
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: center;
+      gap: 40px;
+      padding: 60px 20px;
     }
 
-    header h1 {
-      font-family: 'Roboto', sans-serif;
+    .hero-text {
+      max-width: 500px;
+    }
+
+    .hero h1 {
       font-size: 3em;
+      font-family: 'Roboto', sans-serif;
       font-weight: 700;
       margin-bottom: 10px;
     }
 
-    header p {
+    .hero p {
       font-size: 1.2em;
       color: #555;
+      margin-bottom: 20px;
     }
 
+    .btns {
+      display: flex;
+      gap: 15px;
+    }
+
+    .btn {
+      background: var(--color-principal);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #3d8b41;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--color-principal);
+      color: var(--color-principal);
+    }
+
+    .hero img {
+      max-width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    /* PROYECTOS */
     .proyectos {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -122,18 +166,28 @@
 </head>
 <body>
 
-  <header>
-    <h1>Carla Borda</h1>
-    <p>Diseñadora de Interiores | Interior Designer</p>
-  </header>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Hola, soy Carla Borda</h1>
+      <p>Diseñadora de Interiores | Interior Designer</p>
+      <div class="btns">
+        <a href="#proyectos" class="btn">Ver proyectos</a>
+        <a href="mailto:carlaborda@email.com" class="btn btn-outline">Contáctame</a>
+      </div>
+    </div>
+    <!-- ✅ Aquí cambiamos la imagen a 5.png -->
+    <img src="imagenespf/5.png" alt="Foto de portada de Carla Borda">
+  </section>
 
-  <section class="proyectos">
+  <!-- PROYECTOS -->
+  <section id="proyectos" class="proyectos">
     <div class="proyecto">
       <a href="van-interior.html">
         <img src="imagenespf/1.png" alt="Van Interior">
         <div class="overlay">
           <h3>Van Interior</h3>
-          <p>Render del interior de la van mostrando distribución funcional y estética moderna.<br>Van interior render showcasing functional layout and modern design.</p>
+          <p>Render del interior de la van mostrando distribución funcional y estética moderna.</p>
         </div>
       </a>
     </div>
@@ -143,20 +197,23 @@
         <img src="imagenespf/villa-monge.jpg" alt="Villa Monge">
         <div class="overlay">
           <h3>Villa Monge</h3>
-          <p>Proyecto residencial con iluminación suave y texturas naturales.<br>Residential project with soft lighting and natural textures.</p>
+          <p>Proyecto residencial con iluminación suave y texturas naturales.</p>
         </div>
       </a>
     </div>
 
-    <!-- Agregá más proyectos aquí siguiendo el mismo formato -->
+    <!-- Más proyectos aquí -->
   </section>
 
   <footer>
-    <p>Contacto: <a href="mailto:carlaborda@email.com">carlaborda@email.com</a> | Sígueme en <a href="https://www.linkedin.com/in/carlaborda" target="_blank">LinkedIn</a></p>
+    <p>Contacto: <a href="mailto:carlaborda@email.com">carlaborda@email.com</a> |
+    <a href="https://www.linkedin.com/in/carlaborda" target="_blank">LinkedIn</a></p>
   </footer>
 
 </body>
 </html>
+
+
 
 
 
