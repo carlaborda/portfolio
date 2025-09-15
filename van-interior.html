@@ -1,70 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Van Interior - Carla Borda</title>
+  <meta charset="UTF-8">
+  <title>Project 2: Van Interior</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #e0e7e3; /* un verde suave más oscuro que #e3ede9 */
+      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 40px 20px;
-      color: #333;
+      padding: 0;
+      text-align: center;
+      background: #f8f8f8;
     }
-
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      background: white;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    a.back-link {
-      display: inline-block;
-      margin-bottom: 30px;
-      color: #007a5c;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    a.back-link:hover {
-      text-decoration: underline;
-    }
-
     h1 {
-      color: #005b40;
-      margin-top: 0;
+      margin: 20px 0;
     }
 
-    p {
-      line-height: 1.6;
-      font-size: 1.05rem;
-    }
-
-    /* --- Slider --- */
+    /* Contenedor del slider */
     .slider {
       position: relative;
-      width: 100%;
+      max-width: 900px;
+      margin: auto;
       overflow: hidden;
-      margin: 30px 0;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
 
+    /* Imágenes */
     .slides {
       display: flex;
       transition: transform 0.5s ease-in-out;
     }
-
     .slides img {
       width: 100%;
-      flex-shrink: 0;
+      border-radius: 10px;
     }
 
-    .slider-btn {
+    /* Botones */
+    .prev, .next {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
@@ -74,51 +46,62 @@
       padding: 10px 15px;
       cursor: pointer;
       border-radius: 50%;
+      font-size: 18px;
     }
-
-    .slider-btn.left { left: 10px; }
-    .slider-btn.right { right: 10px; }
-
+    .prev { left: 10px; }
+    .next { right: 10px; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <a href="index.html" class="back-link">← Back to Portfolio</a>
-    <h1>Van Interior</h1>
-    <p>
-      Interior design and layout proposal for a camper van conversion project. 
-      Different configurations were explored to optimize functionality, comfort, and storage in reduced spaces.
-    </p>
-
-    <!-- Slider -->
-    <div class="slider">
-      <div class="slides">
-        <img src="imagenespf/1.png" alt="Van Layout 1" />
-        <img src="imagenespf/2.png" alt="Van Layout 2" />
-        <img src="imagenespf/3.png" alt="Van Layout 3" />
-        <img src="imagenespf/4.png" alt="Van Render 1" />
-        <img src="imagenespf/5.png" alt="Van Render 2" />
-      </div>
-      <button class="slider-btn left">❮</button>
-      <button class="slider-btn right">❯</button>
+  <h1>Project 2: Van Interior</h1>
+  
+  <div class="slider">
+    <div class="slides">
+      <img src="imagenespf/1.jpg" alt="Van Interior 1">
+      <img src="imagenespf/2.jpg" alt="Van Interior 2">
+      <img src="imagenespf/3.jpg" alt="Van Interior 3">
+      <img src="imagenespf/4.jpg" alt="Van Interior 4">
+      <img src="imagenespf/5.jpg" alt="Van Interior 5">
+      <img src="imagenespf/6.jpg" alt="Van Interior 6">
+      <img src="imagenespf/7.jpg" alt="Van Interior 7">
+      <img src="imagenespf/8.jpg" alt="Van Interior 8">
+      <img src="imagenespf/9.jpg" alt="Van Interior 9">
+      <img src="imagenespf/10.jpg" alt="Van Interior 10">
+      <img src="imagenespf/11.jpg" alt="Van Interior 11">
+      <img src="imagenespf/12.jpg" alt="Van Interior 12">
+      <img src="imagenespf/13.jpg" alt="Van Interior 13">
+      <img src="imagenespf/14.jpg" alt="Van Interior 14">
+      <img src="imagenespf/15.jpg" alt="Van Interior 15">
+      <img src="imagenespf/16.jpg" alt="Van Interior 16">
+      <img src="imagenespf/17.jpg" alt="Van Interior 17">
+      <img src="imagenespf/18.jpg" alt="Van Interior 18">
+      <img src="imagenespf/19.jpg" alt="Van Interior 19">
+      <img src="imagenespf/20.jpg" alt="Van Interior 20">
     </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
   </div>
 
   <script>
     const slides = document.querySelector('.slides');
     const images = document.querySelectorAll('.slides img');
-    const prevBtn = document.querySelector('.slider-btn.left');
-    const nextBtn = document.querySelector('.slider-btn.right');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
     let index = 0;
 
     function showSlide(i) {
-      index = (i + images.length) % images.length;
-      slides.style.transform = `translateX(-${index * 100}%)`;
+      if (i < 0) index = images.length - 1;
+      else if (i >= images.length) index = 0;
+      else index = i;
+      slides.style.transform = `translateX(${-index * 100}%)`;
     }
 
     prevBtn.addEventListener('click', () => showSlide(index - 1));
     nextBtn.addEventListener('click', () => showSlide(index + 1));
   </script>
 </body>
+</html>
+
 
 </html>
+
