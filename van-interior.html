@@ -20,7 +20,7 @@ body {
   margin: 0 auto;
   padding: 40px;
   border-radius: 16px; 
-  background: rgba(255, 255, 255, 0.9); /* totalmente neutral, sin verde */
+  background: rgba(255, 255, 255, 0.9); /* totalmente neutral */
   border: 1.5px solid rgba(0,0,0,0.1);
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -34,19 +34,31 @@ body {
 a.back-link {
   display:inline-block;
   margin-bottom:30px;
-  color:#1a6b5f;
+  color:#2e7d5b; /* link verde armonioso */
   text-decoration:none;
   font-weight:600;
   transition: color 0.3s ease;
 }
-a.back-link:hover { color:#3d9d82; text-decoration:underline; }
+a.back-link:hover { color:#3ca178; text-decoration:underline; }
 
 header.project-header { margin-bottom:40px; border-bottom:2px solid #ddd; padding-bottom:10px; }
-header.project-header h1 { margin:0 0 5px; font-weight:800; font-size:2.8rem; color:#1a6b5f; font-family:'Montserrat', sans-serif; }
-header.project-header p { margin:0; color:#555; font-style:italic; font-weight:600; font-family:'Montserrat', sans-serif; }
+header.project-header h1 { 
+  margin:0 0 5px; 
+  font-weight:800; 
+  font-size:2.8rem; 
+  color:#1a4d3e; /* verde oscuro elegante */ 
+  font-family:'Montserrat', sans-serif; 
+}
+header.project-header p { 
+  margin:0; 
+  color:#555; /* gris medio */ 
+  font-style:italic; 
+  font-weight:600; 
+  font-family:'Montserrat', sans-serif; 
+}
 
 h2 {
-  color:#1a6b5f;
+  color:#1a4d3e; /* verde oscuro elegante */
   margin-top:50px;
   margin-bottom:15px;
   font-weight:700;
@@ -55,7 +67,7 @@ h2 {
 }
 p {
   font-size:1.1rem;
-  color:#555;
+  color:#555; /* gris medio */
   margin-top:15px;
   margin-bottom:15px;
   font-family:'Montserrat', sans-serif;
@@ -119,7 +131,7 @@ img {
 
 .description-box {
   background: rgba(245,245,245,0.7); /* neutro, claro */
-  color:#333;
+  color:#555; /* gris medio */
   padding:15px;
   border-radius:8px;
   margin-top:15px;
@@ -130,11 +142,15 @@ footer {
   max-width:900px;
   margin:40px auto 20px;
   text-align:center;
-  color:#1a6b5f;
+  color:#1a4d3e; /* verde oscuro elegante */
   font-weight:600;
   font-size:0.9rem;
   border-top:1px solid #ddd;
   padding-top:15px;
+}
+footer a {
+  color:#2e7d5b; /* link verde */
+  text-decoration:none;
 }
 
 @media(max-width:600px){
@@ -212,7 +228,7 @@ footer {
 </div>
 
 <footer>
-© 2025 Carla Borda — <a href="mailto:carlaborda@upc.edu.ar" style="color:#1a6b5f; text-decoration:none;">Contact</a>
+© 2025 Carla Borda — <a href="mailto:carlaborda@upc.edu.ar">Contact</a>
 </footer>
 
 <script>
@@ -262,6 +278,8 @@ sliders.forEach((slider)=>{
 </script>
 </body>
 </html>
+
+
 
 
 
