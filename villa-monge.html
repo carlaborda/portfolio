@@ -16,11 +16,19 @@ body {
 .container {
   max-width: 900px;
   margin: 0 auto;
-  background: white;
   padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(46,60,54,0.12);
-  border:1.5px solid #d7e1db;
+  border-radius: 16px; /* esquinas suaves */
+  background: rgba(255, 255, 255, 0.25); /* semi-transparente */
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 24px rgba(46,60,54,0.12);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(46,60,54,0.18);
 }
 a.back-link { 
   display:inline-block; 
@@ -166,6 +174,7 @@ window.addEventListener('load',handleFadeIn);
 </script>
 </body>
 </html>
+
 
 
 
