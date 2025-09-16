@@ -4,31 +4,31 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Van Interior - Carla Borda</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #e4ede9; /* fondo suave, neutro */
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f5f4f2; /* fondo neutro, suave */
   margin: 0;
   padding: 40px 20px;
-  color: #2e3c36;
+  color: #333;
   line-height: 1.6;
 }
+
 .container {
   max-width: 900px;
   margin: 0 auto;
   padding: 40px;
   border-radius: 16px; 
-  background: rgba(255, 255, 255, 0.15); /* más translúcido, neutral */
-  border: 1.5px solid rgba(0,0,0,0.1); /* borde sutil */
-  box-shadow: 0 8px 24px rgba(46,60,54,0.12);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.9); /* totalmente neutral, sin verde */
+  border: 1.5px solid rgba(0,0,0,0.1);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .container:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(46,60,54,0.18);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
 }
 
 a.back-link {
@@ -41,9 +41,9 @@ a.back-link {
 }
 a.back-link:hover { color:#3d9d82; text-decoration:underline; }
 
-header.project-header { margin-bottom:40px; border-bottom:2px solid #d7e1db; padding-bottom:10px; }
-header.project-header h1 { margin:0 0 5px; font-weight:800; font-size:2.8rem; color:#1a6b5f; font-family:'Segoe UI', sans-serif; }
-header.project-header p { margin:0; color:#4e6b57; font-style:italic; font-weight:600; font-family:'Segoe UI', sans-serif; }
+header.project-header { margin-bottom:40px; border-bottom:2px solid #ddd; padding-bottom:10px; }
+header.project-header h1 { margin:0 0 5px; font-weight:800; font-size:2.8rem; color:#1a6b5f; font-family:'Montserrat', sans-serif; }
+header.project-header p { margin:0; color:#555; font-style:italic; font-weight:600; font-family:'Montserrat', sans-serif; }
 
 h2 {
   color:#1a6b5f;
@@ -51,22 +51,22 @@ h2 {
   margin-bottom:15px;
   font-weight:700;
   font-size:1.8rem;
-  font-family:'Segoe UI', sans-serif;
+  font-family:'Montserrat', sans-serif;
 }
 p {
   font-size:1.1rem;
-  color:#4e6b57;
+  color:#555;
   margin-top:15px;
   margin-bottom:15px;
-  font-family:'Segoe UI', sans-serif;
+  font-family:'Montserrat', sans-serif;
 }
 img {
   max-width:100%;
   height:auto;
   margin-top:20px;
   border-radius:10px;
-  box-shadow:0 4px 12px rgba(46,60,54,0.08);
-  border:1px solid #d7e1db;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  border:1px solid #ddd;
 }
 .fade-in-text {
   opacity:0;
@@ -118,13 +118,14 @@ img {
 .dot.active { background:#717171; }
 
 .description-box {
-  background: rgba(255, 255, 255, 0.1); /* caja neutral, no verde */
-  color:#2e3c36;
+  background: rgba(245,245,245,0.7); /* neutro, claro */
+  color:#333;
   padding:15px;
   border-radius:8px;
   margin-top:15px;
   font-size:1.1rem;
 }
+
 footer {
   max-width:900px;
   margin:40px auto 20px;
@@ -132,9 +133,10 @@ footer {
   color:#1a6b5f;
   font-weight:600;
   font-size:0.9rem;
-  border-top:1px solid #d7e1db;
+  border-top:1px solid #ddd;
   padding-top:15px;
 }
+
 @media(max-width:600px){
   body { padding:20px 10px; }
   header.project-header h1 { font-size:2rem; }
@@ -214,7 +216,7 @@ footer {
 </footer>
 
 <script>
-// Fade-in for titles/descriptions
+// Fade-in
 function handleFadeIn(){
   const fadeElems = document.querySelectorAll('.fade-in-text');
   const windowBottom = window.innerHeight;
@@ -260,6 +262,7 @@ sliders.forEach((slider)=>{
 </script>
 </body>
 </html>
+
 
 
 
