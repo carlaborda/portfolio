@@ -9,7 +9,7 @@
       --bg: #0f1e1b;
       --overlay: rgba(0,0,0,0.55);
       --accent: #ffffff;
-      --beige: #a8895e;
+      --beige: #a8895e; /* beige más oscuro */
     }
 
     body {
@@ -23,14 +23,16 @@
     /* ===== HERO SECTION ===== */
     header {
       position: relative;
-      height: 90vh;
+      height: 100vh; /* ocupa toda la pantalla */
       min-height: 500px;
       background: url("imagenespf/5.png") no-repeat center center/cover;
+      background-attachment: fixed; /* efecto parallax */
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       color: white;
+      transition: height 0.6s ease; /* transición al scrollear */
     }
 
     header::before {
@@ -56,7 +58,13 @@
     .header-subtitle {
       font-size: 1.2rem;
       color: #d0d0d0;
-      margin: 0 0 20px;
+      margin: 0;
+    }
+
+    .sub-alt {
+      font-size: 1rem;
+      color: var(--beige); /* especialidad en beige */
+      margin-top: 5px;
     }
 
     /* ===== CTA BUTTONS ===== */
@@ -81,11 +89,8 @@
       color: #fff;
       cursor: pointer;
       text-decoration: none;
-
-      /* NUEVO: sin borde + sombra direccional */
       border: none;
       box-shadow: 4px 6px 12px rgba(0,0,0,0.4);
-
       transition: background-color 0.3s ease,
                   transform 0.2s ease,
                   box-shadow 0.3s ease;
@@ -132,7 +137,12 @@
     .project-card h2 {
       margin: 14px 16px 6px;
       font-size: 18px;
-      color: var(--beige); /* beige-dorado suave */
+      color: var(--beige);
+      transition: color 0.3s ease;
+    }
+
+    .project-card h2:hover {
+      color: #8c734a; /* más oscuro en hover */
     }
 
     .project-card p {
@@ -152,10 +162,11 @@
   </style>
 </head>
 <body>
-  <header>
+  <header id="hero">
     <div class="header-content">
       <h1 class="header-title">Carla Borda</h1>
-      <p class="header-subtitle">Interior Designer | 3D Visualizer</p>
+      <p class="header-subtitle">Interior Designer</p>
+      <p class="sub-alt">3D Visualizer</p>
 
       <div class="cta-buttons">
         <a href="https://www.linkedin.com/in/..." target="_blank">LinkedIn</a>
@@ -192,8 +203,21 @@
       </div>
     </div>
   </main>
+
+  <script>
+    // Efecto de achicar header al scrollear
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if(window.scrollY > 50) {
+        header.style.height = '60vh';
+      } else {
+        header.style.height = '100vh';
+      }
+    });
+  </script>
 </body>
 </html>
+
 
 
 
