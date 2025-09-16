@@ -16,11 +16,16 @@ body {
 .container {
   max-width: 900px;
   margin: 0 auto;
-  background: white;
+  background: #fff;
   padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(46,60,54,0.12);
+  border-radius: 16px; /* esquinas suaves */
   border: 1.5px solid #d7e1db;
+  box-shadow: 0 4px 10px rgba(46,60,54,0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(46,60,54,0.18);
 }
 a.back-link {
   display:inline-block;
@@ -249,6 +254,8 @@ sliders.forEach((slider)=>{
 </script>
 </body>
 </html>
+
+
 
 
 
