@@ -20,34 +20,115 @@ body {
   padding: 40px;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(46,60,54,0.12);
-  border:1.5px solid #d7e1db;
+  border: 1.5px solid #d7e1db;
 }
-a.back-link { display:inline-block; margin-bottom:30px; color:#1a6b5f; text-decoration:none; font-weight:600; transition: color 0.3s ease; }
-a.back-link:hover{color:#3d9d82;text-decoration:underline;}
+a.back-link {
+  display:inline-block;
+  margin-bottom:30px;
+  color:#1a6b5f;
+  text-decoration:none;
+  font-weight:600;
+  transition: color 0.3s ease;
+}
+a.back-link:hover { color:#3d9d82; text-decoration:underline; }
 
-header.project-header {margin-bottom:40px; border-bottom:2px solid #d7e1db; padding-bottom:10px;}
-header.project-header h1 {margin:0 0 5px; font-weight:800; font-size:2.8rem; color:#1a6b5f;}
-header.project-header p {margin:0; color:#4e6b57; font-style:italic; font-weight:600;}
-button#lang-btn {padding:6px 12px; margin-top:10px; border-radius:6px; border:2px solid #1a6b5f; background:#1a6b5f; color:white; cursor:pointer; font-weight:bold;}
+header.project-header { margin-bottom:40px; border-bottom:2px solid #d7e1db; padding-bottom:10px; }
+header.project-header h1 { margin:0 0 5px; font-weight:800; font-size:2.8rem; color:#1a6b5f; }
+header.project-header p { margin:0; color:#4e6b57; font-style:italic; font-weight:600; }
 
-h2 {color:#1a6b5f; margin-top:50px; margin-bottom:15px; font-weight:700; font-size:1.8rem;}
-p {font-size:1.1rem; color:#4e6b57; margin-top:15px; margin-bottom:15px;}
-img {max-width:100%; height:auto; margin-top:20px; border-radius:10px; box-shadow:0 4px 12px rgba(46,60,54,0.08); border:1px solid #d7e1db; }
-.fade-in-text {opacity:0; transform:translateY(20px); transition:opacity 0.6s ease-out, transform 0.6s ease-out;}
-.fade-in-text.visible {opacity:1; transform:translateY(0);}
+h2 {
+  color:#1a6b5f;
+  margin-top:50px;
+  margin-bottom:15px;
+  font-weight:700;
+  font-size:1.8rem;
+}
+p {
+  font-size:1.1rem;
+  color:#4e6b57;
+  margin-top:15px;
+  margin-bottom:15px;
+}
+img {
+  max-width:100%;
+  height:auto;
+  margin-top:20px;
+  border-radius:10px;
+  box-shadow:0 4px 12px rgba(46,60,54,0.08);
+  border:1px solid #d7e1db;
+}
+.fade-in-text {
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in-text.visible {
+  opacity:1;
+  transform:translateY(0);
+}
 
 /* Slider */
-.slider {position:relative; overflow:hidden; border-radius:10px; margin-top:20px;}
-.slides {display:flex; transition:transform 0.5s ease-in-out;}
-.slides img {border-radius:10px;}
-.prev, .next {position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.5); color:white; border:none; padding:10px 15px; cursor:pointer; border-radius:50%; font-size:18px; z-index:10;}
-.prev {left:10px;} .next {right:10px;}
-.dots {text-align:center; margin:10px 0;}
-.dot {display:inline-block; width:12px; height:12px; margin:5px; background:#bbb; border-radius:50%; cursor:pointer;}
-.dot.active {background:#717171;}
-.description-box {background:#f0f0f0; color:#2e3c36; padding:15px; border-radius:8px; margin-top:15px; font-size:1.1rem;}
-footer { max-width:900px; margin:40px auto 20px; text-align:center; color:#1a6b5f; font-weight:600; font-size:0.9rem; border-top:1px solid #d7e1db; padding-top:15px;}
-@media(max-width:600px){ body{padding:20px 10px;} header.project-header h1{font-size:2rem;} h2{font-size:1.4rem;} }
+.slider {
+  position:relative;
+  overflow:hidden;
+  border-radius:10px;
+  margin-top:20px;
+}
+.slides {
+  display:flex;
+  transition:transform 0.5s ease-in-out;
+}
+.slides img { border-radius:10px; }
+.prev, .next {
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.5);
+  color:white;
+  border:none;
+  padding:10px 15px;
+  cursor:pointer;
+  border-radius:50%;
+  font-size:18px;
+  z-index:10;
+}
+.prev { left:10px; }
+.next { right:10px; }
+.dots { text-align:center; margin:10px 0; }
+.dot {
+  display:inline-block;
+  width:12px;
+  height:12px;
+  margin:5px;
+  background:#bbb;
+  border-radius:50%;
+  cursor:pointer;
+}
+.dot.active { background:#717171; }
+
+.description-box {
+  background:#f0f0f0;
+  color:#2e3c36;
+  padding:15px;
+  border-radius:8px;
+  margin-top:15px;
+  font-size:1.1rem;
+}
+footer {
+  max-width:900px;
+  margin:40px auto 20px;
+  text-align:center;
+  color:#1a6b5f;
+  font-weight:600;
+  font-size:0.9rem;
+  border-top:1px solid #d7e1db;
+  padding-top:15px;
+}
+@media(max-width:600px){
+  body { padding:20px 10px; }
+  header.project-header h1 { font-size:2rem; }
+  h2 { font-size:1.4rem; }
+}
 </style>
 </head>
 <body>
@@ -55,17 +136,14 @@ footer { max-width:900px; margin:40px auto 20px; text-align:center; color:#1a6b5
   <a href="index.html" class="back-link fade-in-text">← Back to Portfolio</a>
 
   <header class="project-header fade-in-text">
-    <h1 id="proj-title">Van Interior</h1>
-    <p id="proj-subtitle">Interior Design of Camper Van — 2025</p>
-    <button id="lang-btn">Español</button>
+    <h1>Van Interior</h1>
+    <p>Interior Design of Camper Van — 2025</p>
   </header>
 
-  <!-- Descripción -->
-  <div id="desc-box" class="description-box fade-in-text">
+  <div class="description-box fade-in-text">
     This project explores interior design for a camper van, including material textures, lighting, and layout for a functional and cozy mobile space.
   </div>
 
-  <!-- Slider 1 -->
   <h2 class="fade-in-text">Main Area</h2>
   <div class="slider fade-in-text">
     <div class="slides">
@@ -79,7 +157,6 @@ footer { max-width:900px; margin:40px auto 20px; text-align:center; color:#1a6b5
     <div class="dots"></div>
   </div>
 
-  <!-- Slider 2 -->
   <h2 class="fade-in-text">Kitchen</h2>
   <div class="slider fade-in-text">
     <div class="slides">
@@ -95,7 +172,6 @@ footer { max-width:900px; margin:40px auto 20px; text-align:center; color:#1a6b5
     <div class="dots"></div>
   </div>
 
-  <!-- Slider 3 -->
   <h2 class="fade-in-text">Sleeping Area</h2>
   <div class="slider fade-in-text">
     <div class="slides">
@@ -110,7 +186,6 @@ footer { max-width:900px; margin:40px auto 20px; text-align:center; color:#1a6b5
     <div class="dots"></div>
   </div>
 
-  <!-- Slider 4 -->
   <h2 class="fade-in-text">Lighting & Finishes</h2>
   <div class="slider fade-in-text">
     <div class="slides">
@@ -128,7 +203,7 @@ footer { max-width:900px; margin:40px auto 20px; text-align:center; color:#1a6b5
 </footer>
 
 <script>
-// Fade-in solo para texto
+// Fade-in for titles/descriptions
 function handleFadeIn(){
   const fadeElems = document.querySelectorAll('.fade-in-text');
   const windowBottom = window.innerHeight;
@@ -137,23 +212,8 @@ function handleFadeIn(){
     if(rect.top < windowBottom-50) el.classList.add('visible');
   });
 }
-window.addEventListener('scroll',handleFadeIn);
-window.addEventListener('load',handleFadeIn);
-
-// Idioma independiente
-const langBtn = document.getElementById('lang-btn');
-const descBox = document.getElementById('desc-box');
-const texts = {
-  en:{title:'Van Interior', subtitle:'Interior Design of Camper Van — 2024', desc:'This project explores interior design for a camper van, including material textures, lighting, and layout for a functional and cozy mobile space.'},
-  es:{title:'Van Interior', subtitle:'Diseño interior de Van Camper — 2024', desc:'Este proyecto explora el diseño interior de una van camper, incluyendo texturas de materiales, iluminación y distribución para un espacio móvil funcional y acogedor.'}
-};
-let currentLang = 'en';
-langBtn.addEventListener('click',()=>{
-  currentLang = currentLang==='en'?'es':'en';
-  document.getElementById('proj-title').textContent = texts[currentLang].title;
-  document.getElementById('proj-subtitle').textContent = texts[currentLang].subtitle;
-  descBox.textContent = texts[currentLang].desc;
-});
+window.addEventListener('scroll', handleFadeIn);
+window.addEventListener('load', handleFadeIn);
 
 // Sliders
 const sliders = document.querySelectorAll('.slider');
@@ -165,7 +225,6 @@ sliders.forEach((slider)=>{
   const dotsContainer = slider.querySelector('.dots');
   let index=0;
 
-  // Dots
   images.forEach((_,i)=>{
     const dot=document.createElement('span');
     dot.classList.add('dot');
@@ -190,6 +249,9 @@ sliders.forEach((slider)=>{
 </script>
 </body>
 </html>
+
+
+
 
 
 
