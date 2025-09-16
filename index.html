@@ -19,7 +19,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ===== HERO PORTADA ===== */
+    /* ===== HERO SECTION ===== */
     header {
       position: relative;
       height: 90vh;
@@ -66,9 +66,8 @@
       flex-wrap: wrap;
     }
 
-    /* Botones uniformes tipo vidrio */
-    .cta-buttons a,
-    .cta-buttons button {
+    /* Glass-style buttons */
+    .cta-buttons a {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -86,12 +85,11 @@
       transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    .cta-buttons a:hover,
-    .cta-buttons button:hover {
+    .cta-buttons a:hover {
       background-color: rgba(255,255,255,0.3);
     }
 
-    /* ===== PROYECTOS ===== */
+    /* ===== PROJECTS ===== */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -116,7 +114,6 @@
       box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
     }
 
-    
     .project-card img {
       width: 100%;
       height: auto;
@@ -149,83 +146,46 @@
 <body>
   <header>
     <div class="header-content">
-      <h1 id="header-title" class="header-title">Carla Borda</h1>
-      <p id="header-subtitle" class="header-subtitle">Interior Designer</p>
+      <h1 class="header-title">Carla Borda</h1>
+      <p class="header-subtitle">Interior Designer</p>
 
       <div class="cta-buttons">
-        <a id="link-linkedin" href="" target="_blank">LinkedIn</a>
-        <a id="link-email" href="mailto:carlaborda@upc.edu.ar">Email</a>
-        <a id="link-cv" href="/portfolio/CV-Carla-Borda.pdf" download>Download CV</a>
-        <button id="lang-btn">Español</button>
+        <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+        <a href="mailto:carlaborda@upc.edu.ar">Email</a>
+        <a href="/portfolio/CV-Carla-Borda.pdf" download>Download CV</a>
       </div>
     </div>
   </header>
 
   <main>
     <div class="projects-grid">
-      <!-- Proyecto 1 -->
+      <!-- Project 1 -->
       <div class="project-card">
         <a href="villa-monge.html">
           <img src="imagenespf/titlepage.png" alt="Villa Monge" />
         </a>
-        <h2 id="proj1-title">Project 1: Villa Monge</h2>
-        <p id="proj1-desc">
+        <h2>Project 1: Villa Monge</h2>
+        <p>
           Residential interior design project in Switzerland, focused on blending natural textures, soft lighting, and contemporary functionality to create a calm and harmonious living space.
         </p>
       </div>
 
-      <!-- Proyecto 2 -->
+      <!-- Project 2 -->
       <div class="project-card">
         <a href="van-interior.html">
           <img src="imagenespf/6.png" alt="Van Interior Design" />
         </a>
-        <h2 id="proj2-title">Project 2: Van Interior</h2>
-        <p id="proj2-desc">
+        <h2>Project 2: Van Interior</h2>
+        <p>
           Interior renders of a camper van concept, exploring material textures, lighting, and layout visualization for a functional and cozy mobile space.
         </p>
       </div>
     </div>
   </main>
-
-  <script>
-    const langBtn = document.getElementById('lang-btn');
-
-    const texts = {
-      en: {
-        langBtn: 'Español',
-        headerTitle: 'Carla Borda',
-        headerSubtitle: 'Interior Designer',
-        proj1Title: 'Project 1: Villa Monge',
-        proj1Desc: 'Residential interior design project in Switzerland, focused on blending natural textures, soft lighting, and contemporary functionality to create a calm and harmonious living space.',
-        proj2Title: 'Project 2: Van Interior',
-        proj2Desc: 'Interior renders of a camper van concept, exploring material textures, lighting, and layout visualization for a functional and cozy mobile space.'
-      },
-      es: {
-        langBtn: 'English',
-        headerTitle: 'Carla Borda',
-        headerSubtitle: 'Diseñadora de Interiores',
-        proj1Title: 'Proyecto 1: Villa Monge',
-        proj1Desc: 'Proyecto de interiorismo residencial en Suiza, que combina texturas naturales, iluminación suave y funcionalidad contemporánea para crear un espacio armónico y confortable.',
-        proj2Title: 'Proyecto 2: Van Interior',
-        proj2Desc: 'Renders interiores de una van camper, explorando texturas de materiales, iluminación y la visualización de la distribución para un espacio móvil funcional y acogedor.'
-      }
-    };
-
-    let currentLang = 'en';
-
-    langBtn.addEventListener('click', () => {
-      currentLang = currentLang === 'en' ? 'es' : 'en';
-      document.getElementById('header-title').textContent = texts[currentLang].headerTitle;
-      document.getElementById('header-subtitle').textContent = texts[currentLang].headerSubtitle;
-      document.getElementById('proj1-title').textContent = texts[currentLang].proj1Title;
-      document.getElementById('proj1-desc').textContent = texts[currentLang].proj1Desc;
-      document.getElementById('proj2-title').textContent = texts[currentLang].proj2Title;
-      document.getElementById('proj2-desc').textContent = texts[currentLang].proj2Desc;
-      langBtn.textContent = texts[currentLang].langBtn;
-    });
-  </script>
 </body>
 </html>
+
+
 
 
 
