@@ -8,7 +8,7 @@
 <style>
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: #f5f4f2; /* fondo neutro, suave */
+  background-color: #f5f4f2;
   margin: 0;
   padding: 40px 20px;
   color: #333;
@@ -19,76 +19,69 @@ body {
   max-width: 900px;
   margin: 0 auto;
   padding: 40px;
-  border-radius: 16px; 
-  background: rgba(255, 255, 255, 0.9); /* totalmente neutral */
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.9);
   border: 1.5px solid rgba(0,0,0,0.1);
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.container:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
 }
 
 a.back-link {
   display:inline-block;
   margin-bottom:30px;
-  color:#2e7d5b; /* link verde armonioso */
+  color:#2e7d5b;
   text-decoration:none;
   font-weight:600;
-  transition: color 0.3s ease;
 }
-a.back-link:hover { color:#3ca178; text-decoration:underline; }
+a.back-link:hover { text-decoration:underline; }
 
 header.project-header { margin-bottom:40px; border-bottom:2px solid #ddd; padding-bottom:10px; }
-header.project-header h1 { 
-  margin:0 0 5px; 
-  font-weight:800; 
-  font-size:2.8rem; 
-  color:#1a4d3e; /* verde oscuro elegante */ 
-  font-family:'Montserrat', sans-serif; 
+header.project-header h1 {
+  margin:0 0 5px;
+  font-weight:800;
+  font-size:2.8rem;
+  color:#1a4d3e;
 }
-header.project-header p { 
-  margin:0; 
-  color:#555; /* gris medio */ 
-  font-style:italic; 
-  font-weight:600; 
-  font-family:'Montserrat', sans-serif; 
+header.project-header p {
+  margin:0;
+  color:#555;
+  font-style:italic;
+  font-weight:600;
 }
 
-h2 {
-  color:#1a4d3e; /* verde oscuro elegante */
-  margin-top:50px;
-  margin-bottom:15px;
-  font-weight:700;
-  font-size:1.8rem;
-  font-family:'Montserrat', sans-serif;
+h2 { color:#1a4d3e; margin-top:50px; margin-bottom:15px; font-weight:700; font-size:1.8rem; }
+
+/* Spinner y wrapper */
+.image-wrapper {
+  position: relative;
+  display: inline-block;
 }
-p {
-  font-size:1.1rem;
-  color:#555; /* gris medio */
-  margin-top:15px;
-  margin-bottom:15px;
-  font-family:'Montserrat', sans-serif;
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 4px solid #ccc;
+  border-top: 4px solid #2e7d5b;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 img {
   max-width:100%;
   height:auto;
-  margin-top:20px;
   border-radius:10px;
   box-shadow:0 4px 12px rgba(0,0,0,0.08);
   border:1px solid #ddd;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
-.fade-in-text {
-  opacity:0;
-  transform:translateY(20px);
-  transition:opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-.fade-in-text.visible {
-  opacity:1;
-  transform:translateY(0);
-}
+img.visible { opacity: 1; display: block; }
 
 /* Slider */
 .slider {
@@ -101,7 +94,6 @@ img {
   display:flex;
   transition:transform 0.5s ease-in-out;
 }
-.slides img { border-radius:10px; }
 .prev, .next {
   position:absolute;
   top:50%;
@@ -129,97 +121,74 @@ img {
 }
 .dot.active { background:#717171; }
 
-.description-box {
-  background: rgba(245,245,245,0.7); /* neutro, claro */
-  color:#555; /* gris medio */
-  padding:15px;
-  border-radius:8px;
-  margin-top:15px;
-  font-size:1.1rem;
-}
-
 footer {
   max-width:900px;
   margin:40px auto 20px;
   text-align:center;
-  color:#1a4d3e; /* verde oscuro elegante */
+  color:#1a4d3e;
   font-weight:600;
   font-size:0.9rem;
   border-top:1px solid #ddd;
   padding-top:15px;
 }
-footer a {
-  color:#2e7d5b; /* link verde */
-  text-decoration:none;
-}
-
-@media(max-width:600px){
-  body { padding:20px 10px; }
-  header.project-header h1 { font-size:2rem; }
-  h2 { font-size:1.4rem; }
-}
 </style>
 </head>
 <body>
 <div class="container">
-  <a href="index.html" class="back-link fade-in-text">← Back to Portfolio</a>
+  <a href="index.html" class="back-link">← Back to Portfolio</a>
 
-  <header class="project-header fade-in-text">
+  <header class="project-header">
     <h1>Van Interior</h1>
     <p>Interior Design of Camper Van — 2025</p>
   </header>
 
-  <div class="description-box fade-in-text">
-    This project explores interior design for a camper van, including material textures, lighting, and layout for a functional and cozy mobile space.
-  </div>
-
-  <h2 class="fade-in-text">Main Area</h2>
-  <div class="slider fade-in-text">
+  <h2>Main Area</h2>
+  <div class="slider">
     <div class="slides">
-      <img src="imagenespf/1.png" alt="van1">
-      <img src="imagenespf/2.png" alt="van2">
-      <img src="imagenespf/3.png" alt="van3">
-      <img src="imagenespf/4.png" alt="van4">
+      <div class="image-wrapper"><div class="spinner"></div><img src="imagenespf/1.png" alt="van1"></div>
+      <div class="image-wrapper"><div class="spinner"></div><img src="imagenespf/2.png" alt="van2"></div>
+      <div class="image-wrapper"><div class="spinner"></div><img src="imagenespf/3.png" alt="van3"></div>
+      <div class="image-wrapper"><div class="spinner"></div><img src="imagenespf/4.png" alt="van4"></div>
     </div>
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
     <div class="dots"></div>
   </div>
 
-  <h2 class="fade-in-text">Kitchen</h2>
-  <div class="slider fade-in-text">
+  <h2>Kitchen</h2>
+  <div class="slider">
     <div class="slides">
-      <img src="imagenespf/5.png" alt="van5">
-      <img src="imagenespf/6.png" alt="van6">
-      <img src="imagenespf/7.png" alt="van7">
-      <img src="imagenespf/9.png" alt="van9">
-      <img src="imagenespf/10.png" alt="van10">
-      <img src="imagenespf/11.png" alt="van11">
+      <div class="image-wrapper"><div class="spinner"></div><img src="imagenespf/5.png" alt="van5"></div>
+      <div class="image-wrapper"><div class="spinner"></div><img src="imagenespf/6.png" alt="van6"></div>
+      <div class="image-wrapper"><div class="spinner"></div><img src="imagenespf/7.png" alt="van7"></div>
+      <div class="image-wrapper"><div class="spinner"></div><img src="imagenespf/9.png" alt="van9"></div>
+      <div class="image-wrapper"><div class="spinner"></div><img src="imagenespf/10.png" alt="van10"></div>
+      <div class="image-wrapper"><div class="spinner"></div><img src="imagenespf/11.png" alt="van11"></div>
     </div>
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
     <div class="dots"></div>
   </div>
 
-  <h2 class="fade-in-text">Sleeping Area</h2>
-  <div class="slider fade-in-text">
+  <h2>Sleeping Area</h2>
+  <div class="slider">
     <div class="slides">
-      <img src="imagenespf/8.png" alt="van8">
-      <img src="imagenespf/12.png" alt="van12">
-      <img src="imagenespf/13.png" alt="van13">
-      <img src="imagenespf/14.png" alt="van14">
-      <img src="imagenespf/15.png" alt="van15">
+      <div class="image-wrapper"><div class="spinner"></div><img src="imagenespf/8.png" alt="van8"></div>
+      <div class="image-wrapper"><div class="spinner"></div><img src="imagenespf/12.png" alt="van12"></div>
+      <div class="image-wrapper"><div class="spinner"></div><img src="imagenespf/13.png" alt="van13"></div>
+      <div class="image-wrapper"><div class="spinner"></div><img src="imagenespf/14.png" alt="van14"></div>
+      <div class="image-wrapper"><div class="spinner"></div><img src="imagenespf/15.png" alt="van15"></div>
     </div>
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
     <div class="dots"></div>
   </div>
 
-  <h2 class="fade-in-text">Lighting & Finishes</h2>
-  <div class="slider fade-in-text">
+  <h2>Lighting & Finishes</h2>
+  <div class="slider">
     <div class="slides">
-      <img src="imagenespf/16.png" alt="van16">
-      <img src="imagenespf/17.png" alt="van17">
+      <div class="image-wrapper"><div class="spinner"></div><img src="imagenespf/16.png" alt="van16"></div>
+      <div class="image-wrapper"><div class="spinner"></div><img src="imagenespf/17.png" alt="van17"></div>
     </div>
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
@@ -232,19 +201,15 @@ footer a {
 </footer>
 
 <script>
-// Fade-in
-function handleFadeIn(){
-  const fadeElems = document.querySelectorAll('.fade-in-text');
-  const windowBottom = window.innerHeight;
-  fadeElems.forEach(el=>{
-    const rect = el.getBoundingClientRect();
-    if(rect.top < windowBottom-50) el.classList.add('visible');
+// Mostrar imágenes al cargarse con fade-in
+document.querySelectorAll('.image-wrapper img').forEach(img => {
+  img.addEventListener('load', () => {
+    img.classList.add('visible');
+    img.previousElementSibling.style.display = 'none';
   });
-}
-window.addEventListener('scroll', handleFadeIn);
-window.addEventListener('load', handleFadeIn);
+});
 
-// Sliders
+// Slider
 const sliders = document.querySelectorAll('.slider');
 sliders.forEach((slider)=>{
   const slides = slider.querySelector('.slides');
@@ -278,6 +243,7 @@ sliders.forEach((slider)=>{
 </script>
 </body>
 </html>
+
 
 
 
