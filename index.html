@@ -9,7 +9,7 @@
       --bg: #0f1e1b;
       --overlay: rgba(0,0,0,0.55);
       --accent: #ffffff;
-      --beige: #a8895e; /* beige más oscuro */
+      --beige: #a8895e;
     }
 
     body {
@@ -115,16 +115,16 @@
     .project-card {
       border-radius: 12px;
       overflow: hidden;
-      background: rgba(255,255,255,0.15); /* translúcido */
-      backdrop-filter: blur(6px);          /* efecto vidrio */
-      color: #fff;                         /* texto blanco para contraste */
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(6px);
+      color: #fff;
       box-shadow: 4px 6px 12px rgba(0,0,0,0.4);
       transition: background-color 0.3s ease,
                   transform 0.2s ease,
                   box-shadow 0.3s ease;
       display: flex;
       flex-direction: column;
-      text-align: justify; /* títulos y textos justificados */
+      text-align: justify;
     }
 
     .project-card:hover {
@@ -133,12 +133,42 @@
       box-shadow: 6px 8px 16px rgba(0,0,0,0.5);
     }
 
-    .project-card img {
+    /* Imagen con loader */
+    .image-wrapper {
+      position: relative;
       width: 100%;
-      height: auto;
-      object-fit: contain;
-      display: block;
+      background: rgba(255,255,255,0.05);
+      min-height: 200px; /* espacio reservado para que no "salte" el layout */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-wrapper img {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      width: 100%;
       border-radius: 12px 12px 0 0;
+    }
+
+    .image-wrapper img.loaded {
+      opacity: 1;
+    }
+
+    /* Spinner */
+    .spinner {
+      border: 3px solid rgba(255,255,255,0.2);
+      border-top: 3px solid white;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      animation: spin 1s linear infinite;
+      position: absolute;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
 
     .project-card h2 {
@@ -185,7 +215,10 @@
       <!-- Proyecto 1 -->
       <div class="project-card">
         <a href="villa-monge.html">
-          <img src="imagenespf/titlepage.png" alt="Villa Monge" />
+          <div class="image-wrapper">
+            <div class="spinner"></div>
+            <img src="imagenespf/titlepage.png" alt="Villa Monge" />
+          </div>
         </a>
         <h2>Project 1: Villa Monge</h2>
         <p>
@@ -197,7 +230,10 @@
       <!-- Proyecto 2 -->
       <div class="project-card">
         <a href="van-interior.html">
-          <img src="imagenespf/6.png" alt="Van Interior Design" />
+          <div class="image-wrapper">
+            <div class="spinner"></div>
+            <img src="imagenespf/6.png" alt="Van Interior Design" />
+          </div>
         </a>
         <h2>Project 2: Van Interior</h2>
         <p>
@@ -218,9 +254,19 @@
         header.style.height = '100vh';
       }
     });
+
+    // Mostrar imágenes con fade-in después de cargar
+    document.querySelectorAll('.image-wrapper img').forEach(img => {
+      img.addEventListener('load', () => {
+        img.classList.add('loaded');
+        img.previousElementSibling.style.display = 'none'; // Oculta el spinner
+      });
+    });
   </script>
 </body>
 </html>
+
+
 
 
 
