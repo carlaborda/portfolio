@@ -133,12 +133,12 @@
       box-shadow: 6px 8px 16px rgba(0,0,0,0.5);
     }
 
-    /* Imagen con loader */
+    /* ===== IMAGE WRAPPER & SPINNER ===== */
     .image-wrapper {
       position: relative;
       width: 100%;
       background: rgba(255,255,255,0.05);
-      min-height: 200px; /* espacio reservado para que no "salte" el layout */
+      min-height: 200px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -146,8 +146,9 @@
 
     .image-wrapper img {
       opacity: 0;
-      transition: opacity 0.5s ease;
+      transition: opacity 0.6s ease;
       width: 100%;
+      height: auto;
       border-radius: 12px 12px 0 0;
     }
 
@@ -155,7 +156,6 @@
       opacity: 1;
     }
 
-    /* Spinner */
     .spinner {
       border: 3px solid rgba(255,255,255,0.2);
       border-top: 3px solid white;
@@ -163,12 +163,11 @@
       width: 28px;
       height: 28px;
       animation: spin 1s linear infinite;
-      position: absolute;
+      display: flex;
     }
 
     @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      to { transform: rotate(360deg); }
     }
 
     .project-card h2 {
@@ -245,26 +244,33 @@
   </main>
 
   <script>
-    // Efecto de achicar header al scrollear
+    // Achica el header al scrollear
     window.addEventListener('scroll', function() {
       const header = document.querySelector('header');
-      if(window.scrollY > 50) {
-        header.style.height = '60vh';
-      } else {
-        header.style.height = '100vh';
-      }
+      header.style.height = window.scrollY > 50 ? '60vh' : '100vh';
     });
 
-    // Mostrar imágenes con fade-in después de cargar
+    // Mostrar imágenes cuando carguen + ocultar spinner
     document.querySelectorAll('.image-wrapper img').forEach(img => {
-      img.addEventListener('load', () => {
+      const spinner = img.previousElementSibling;
+
+      function showImage() {
         img.classList.add('loaded');
-        img.previousElementSibling.style.display = 'none'; // Oculta el spinner
-      });
+        if (spinner) spinner.style.display = 'none';
+      }
+
+      if (img.complete) {
+        showImage();
+      } else {
+        img.addEventListener('load', showImage);
+        img.addEventListener('error', showImage);
+      }
     });
   </script>
 </body>
 </html>
+
+
 
 
 
